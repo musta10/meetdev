@@ -10,6 +10,7 @@ const saltRounds = 10;
 // CONEXION USERS
 
 routes.post('/sign-up', (req,res) => {
+    console.log(req.body);
     try {
         if (!req.body.name) throw 'NO NAME'
         if (!req.body.email) throw 'NO EMAIL'
@@ -18,7 +19,7 @@ routes.post('/sign-up', (req,res) => {
         bcrypt.genSalt(saltRounds, (err, salt) =>{
             bcrypt.hash(req.body.password, salt, (err, hash) =>{
                 console.log(hash);
-                let sql = `INSERT INTO users(name, email, password, photo) VALUES ('${req.body.name}','${req.body.email}','${req.body.password}','${req.body.photo}')`;
+                let sql = `INSERT INTO users (name, email, password, photo) VALUES ('${req.body.name}','${req.body.email}','${hash}','${req.body.photo}')`;
                 Mydb.query(sql, function(err, result) {
                     if (err) throw err;
                     console.log(result);
@@ -26,7 +27,7 @@ routes.post('/sign-up', (req,res) => {
                 })
             })
         })
-        
+
     } catch (err) {
         res.status(403).send(err)
     }
