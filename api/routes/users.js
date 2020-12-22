@@ -9,7 +9,7 @@ const saltRounds = 10;
 
 // CONEXION USERS
 
-routes.post('/sign-up', (req,res) => {
+routes.post('/signUp', (req,res) => {
     console.log(req.body);
     try {
         if (!req.body.name) throw 'NO NAME'
