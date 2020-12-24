@@ -9,12 +9,20 @@ body{
     background: $fond-ecran;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 .container{
     display: flex;
     align-items: center;
     justify-content: center;
 }
+.inputs{
+    width: 100%;
+    padding: 0.5em;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+  }
 
 h1{
     color: $red;
@@ -33,7 +41,7 @@ h1{
 }
 .bouton-login{
     background-color: $red;
-   border: none;
+    border: none;
 }
 .bouton-inscription{
     background-color: $color-jaune;

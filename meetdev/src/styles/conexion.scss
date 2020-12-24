@@ -15,7 +15,13 @@ body {
   align-items: center;
   justify-content: center;
 }
-
+.inputs{
+  width: 100%;
+  padding: 0.5em;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  outline: none;
+}
 h1 {
   color: $red;
   font-weight: bold;
