@@ -93,6 +93,29 @@ routes.post('/dashboard', (req, res) =>{
         }
     })
 })
+routes.use("/addEvent", (req, res, next) => {
+    const authHeader = req.headers.token
+    console.log(req.headers)
+    const token = authHeader
+
+    if (token) { 
+        console.log(token)
+        jwt.verify(token, config.secret, (err, decodedToken) => {
+            if (err) { 
+                console.log(err)
+                res.status(403).send('oho');
+            } else {
+                console.log('test');
+                next()
+            }
+        })
+
+    } else { 
+        console.log('bonjour')
+        res.status(403).send('oui');
+    }
+
+});
 
 
 
@@ -117,6 +140,24 @@ routes.post('/addEvent', (req, res) => {
 });
 
 
+routes.post('/Forum', (req, res) => {
+    const name = req.body.name
+    const commentaire = req.body.commentaire
+    const date_publication = req.body.date_publication
+    const FK_users_id = req.body.user_id
+    const FK_events_id = req.body.event_id
+
+    Mydb.query(`INSERT INTO commentaires (name, commentaire, date_publication, FK_users_id, FK_events_id  ) VALUES ('${name}', '${commentaire}','${date_publication}', '${FK_users_id}', '${FK_events_id}')`, function (err, result) {
+        console.log(result);
+        if(err) {
+            console.log(err);
+        } else {
+            res.send('bien reçu');
+        }
+    });
+
+})
+
 //  PROFILE USER
 routes.get('/profile/:id', (req, res) =>{
     try{
@@ -133,24 +174,6 @@ routes.get('/profile/:id', (req, res) =>{
         res.send(403).send(err);
     }
 });
-
-routes.post('/Forum', (req, res) => {
-    const name = req.body.name
-    const commentaire = req.body.commentaire
-    const date_depuis_de = req.body.date_publication
-    const FK_users_id = req.body.user_id
-    const FK_events_id = req.body.event_id
-
-    Mydb.query(`INSERT INTO commentaires (name, commentaire, date_depuis_de, FK_users_id, FK_events_id  ) VALUES ('${name}'), ('${commentaire}'),('${date_depuis_de}'), ('${FK_users_id}'), ('${FK_events_id}')`, function (err, result) {
-        console.log(result);
-        if(err) {
-            console.log(err);
-        } else {
-            res.send('bien reçu');
-        }
-    });
-
-})
 
 
 // routes.put('/profile:id', (req, res) =>{
