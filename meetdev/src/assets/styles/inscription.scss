@@ -1,9 +1,5 @@
-@import "~bootstrap/scss/bootstrap";
+@import "./variables.scss";
 
-$fond-ecran: #EDE4FF;
-$red: #D63031;
-$color-jaune: #FFEAA7;
-$blue: #0984E3;
 
 body{
     background: $fond-ecran;
@@ -24,7 +20,7 @@ body{
     outline: none;
   }
 
-h1{
+.myText{
     color: $red;
     font-weight: bold;
     text-align: center;

@@ -65,6 +65,9 @@ routes.post('/signIn', (req, res) => {
     })
 })
 
+// SIGN-OUT SE DECONNECTER
+
+
 // AJOUTE EVENEMENT
 console.log('teyetst');
 
@@ -74,7 +77,7 @@ routes.post('/addEvent', (req, res) => {
   const date = req.body.date;
 
   Mydb.query(
-    `INSERT INTO events (description, date) VALUES ('${description}','${date})`, function
+    `INSERT INTO events (description, date) VALUES ('${description}','${date}')`, function
     (err, result) {
         console.log(result);
         if(err) {
@@ -87,6 +90,33 @@ routes.post('/addEvent', (req, res) => {
 
 });
 
+
+//  PROFILE USER
+routes.get('/profile/:id', (req, res) =>{
+    try{
+        if (!req.params.id) throw 'NO USER'
+        Mydb.query(`SELECT * FROM users WHERE users.id = ${req.params.id}`, function (err, result) {
+            if (err) throw err;
+            console.log(req.params.id);
+            res.send(result);
+            console.log(result);
+
+        });
+
+    } catch(err) {
+        res.send(403).send(err);
+    }
+});
+
+
+
+// routes.put('/profile:id', (req, res) =>{
+//     if (!req.params.id) throw 'NO USER'
+//     const newProfile = req.body
+//     Mydb.query(`UPDATE users set ? WHERE id = ${newProfile}, ${id}`, (err, rows) =>{
+//         res.redirect('/');
+//     });
+// });
 
 
 

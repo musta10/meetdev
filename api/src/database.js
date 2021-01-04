@@ -1,3 +1,5 @@
+'use strict';
+
 const mysql = require('mysql2');
 
 var Myconnection = mysql.createConnection({

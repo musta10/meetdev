@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/conexion.scss";
+import "../assets/styles/conexion.scss";
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -7,7 +7,7 @@ import Button from "react-bootstrap/Button";
 function Conexion() {
   return (
     <div className="container">
-      <h1>Meet Dev</h1>
+      <h1 className="myText">Meet Dev</h1>
       <Form className="conexion">
         <Form.Group controlId="formGroupEmail">
           <input className="inputs"
