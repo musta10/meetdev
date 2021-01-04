@@ -65,12 +65,38 @@ routes.post('/signIn', (req, res) => {
     })
 })
 
-// SIGN-OUT SE DECONNECTER
+// CONEXION ADMIN
+routes.post('/dashboard', (req, res) =>{
+    const password = req.body.password
+    const email = req.body.email;
+    Mydb.query(`SELECT * FROM admin WHERE email = '${req.body.email}'`, function (err,result) {
+        console.log(result);
+        if (err) {
+            res.send('non')
+        } else {
+            if (result.length >0) {
+                bcrypt.compare(password, result[0].password, function(error, results){
+                    console.log(results);
+                    if(results === true) {
+                        let token = jwt.sign({email: result[0].email, id: result[0].id, isAdmin: true}, config.secret, {expiresIn: 86400})
+                        console.log(token);
+                        res.send({ token: token })
+                        console.log('you are admin')
+                    } else {
+                        console.log('who are you')
+                        console.log(results);
+                    }
+                })
+            } else {
+                console.log('faux mail')
+            }
+        }
+    })
+})
+
 
 
 // AJOUTE EVENEMENT
-console.log('teyetst');
-
 routes.post('/addEvent', (req, res) => {
   
   const description = req.body.description;
@@ -108,6 +134,23 @@ routes.get('/profile/:id', (req, res) =>{
     }
 });
 
+routes.post('/Forum', (req, res) => {
+    const name = req.body.name
+    const commentaire = req.body.commentaire
+    const date_depuis_de = req.body.date_publication
+    const FK_users_id = req.body.user_id
+    const FK_events_id = req.body.event_id
+
+    Mydb.query(`INSERT INTO commentaires (name, commentaire, date_depuis_de, FK_users_id, FK_events_id  ) VALUES ('${name}'), ('${commentaire}'),('${date_depuis_de}'), ('${FK_users_id}'), ('${FK_events_id}')`, function (err, result) {
+        console.log(result);
+        if(err) {
+            console.log(err);
+        } else {
+            res.send('bien reçu');
+        }
+    });
+
+})
 
 
 // routes.put('/profile:id', (req, res) =>{
