@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const port = 4000
-
+// const admin = require('./src/routes/admin')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 
@@ -14,6 +14,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cors()) 
 const routes = require('./src/routes/users')
 app.use(routes)
+// app.use(admin)
+
 
 
 app.listen(port, () => {
