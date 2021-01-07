@@ -81,7 +81,7 @@ routes.post("/dashboard", (req, res) => {
         if (err) {
           console.log(err);
         } else {
-          res.send("bien reçu");
+          res.send("bien reçu")
         }
       }
     );
