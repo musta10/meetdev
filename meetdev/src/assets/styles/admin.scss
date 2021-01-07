@@ -1,0 +1,16 @@
+@import "./variables.scss";
+
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.formulario{
+    width: 500px;
+    height: 400px;
+    margin: 3em;
+}

@@ -48,13 +48,14 @@
     align-items: center;
     border-radius: 10px;
     
+    .boton-plus, p{
+        margin-left: 10px;
+        vertical-align: middle;
+        
+    }
    
 }
-.boton-plus, p{
-    margin-left: 10px;
-   vertical-align: middle;
-    
-}
+
 .information {
     width: 50%;
     height: 250px;
