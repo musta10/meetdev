@@ -1,52 +1,80 @@
-import React from "react";
+import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
+import Axios from 'axios'
 import Button from "react-bootstrap/Button";
 import "../assets/styles/conexion.scss";
 
 const Inscription = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [photo, setPhoto] = useState("");
+
+
+  const inscription = () =>{
+    Axios.post('http://localhost:4000/signUp', {
+      name: name,
+      email: email,
+      password: password,
+      photo: photo,
+    }).then((reponse)=>{
+      console.log(reponse);
+    })
+  }
+
+
+
   return (
     <div className="containers">
       <h1 className="myText">Meet Dev</h1>
       <Form className="conexion">
         <Form.Group controlId="formGroupName">
           <input
+            onChange={(e) => {
+              setName(e.target.value);
+            }}
             className="inputs"
-            name="name"
             type="text"
             placeholder="Prénom"
           />
         </Form.Group>
         <Form.Group controlId="formGroupEmail">
           <input
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
             className="inputs"
-            name="email"
             type="email"
             placeholder="Email"
           />
         </Form.Group>
         <Form.Group controlId="formGroupPassword">
           <input
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
             className="inputs"
-            name="password"
             type="password"
             placeholder="Mot de passe"
           />
         </Form.Group>
         <Form.Group controlId="formGroupPhoto">
           <input
+            onChange={(e) => {
+              setPhoto(e.target.value);
+            }}
             className="inputs"
-            name="photo"
             type="text"
             placeholder="Photo Profile"
           />
         </Form.Group>
         <div className="buttons">
           <Button className="btn-block bouton-login">Connexion</Button>
-          <Button className="bouton-inscription">créer une compte</Button>
+          <Button onClick={inscription} className="bouton-inscription">créer une compte</Button>
         </div>
       </Form>
     </div>
   );
-}
+};
 
 export default Inscription;
