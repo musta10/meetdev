@@ -19,10 +19,16 @@ const Conexion = () => {
     })
   }
 
+
+  const handleData = (e) =>{
+    e.preventDefault()
+  }
+
+
   return (
     <div className="containers">
       <h1 className="myText">Meet Dev</h1>
-      <Form className="conexion">
+      <Form onSubmit={handleData} className="conexion">
         <Form.Group controlId="formGroupEmail">
           <input
             onChange={(e) => {
