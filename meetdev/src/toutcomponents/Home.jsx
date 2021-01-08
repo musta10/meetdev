@@ -3,10 +3,13 @@ import "../assets/styles/home.scss";
 import Button from "react-bootstrap/Button";
 import imgEvent from "../assets/img/event1.jpg";
 import imgEvent2 from '../assets/img/event2.jfif'
+import Nav from "../component/Nav";
 
-function Home() {
+const Home = () => {
   return (
+
       <>
+      <Nav />
     <div className="container">
       <p>Événements a Paris, Ille De France</p>
       <article className="fleximg">

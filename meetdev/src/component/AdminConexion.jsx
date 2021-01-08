@@ -3,7 +3,7 @@ import "../assets/styles/admin.scss";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
-function AdminConexion ()  {    
+const AdminConexion = () =>  {    
     return (
       <div className="formulario">
         <Form>

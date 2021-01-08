@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import '../assets/styles/profile.scss'
 
 
-function Profile ()  {    
+const Profile = ()  => {    
     return (
         <div className="formulario">
         <Form>

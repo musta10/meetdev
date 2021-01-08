@@ -6,7 +6,7 @@ body {
   margin: 0;
   padding: 0;
 }
-.container {
+.containers {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -36,6 +36,7 @@ body {
 .bouton-login {
   background-color: $red;
   border: none;
+  margin-bottom: 30px;
 }
 .bouton-inscription {
   background-color: $color-jaune;

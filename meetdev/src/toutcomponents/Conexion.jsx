@@ -4,9 +4,9 @@ import "../assets/styles/conexion.scss";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
-function Conexion() {
+const Conexion = () =>{
   return (
-    <div className="container">
+    <div className="containers">
       <h1 className="myText">Meet Dev</h1>
       <Form className="conexion">
         <Form.Group controlId="formGroupEmail">

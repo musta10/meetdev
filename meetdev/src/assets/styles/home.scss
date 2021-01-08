@@ -42,7 +42,7 @@
 }
 
 .actualite{
-    height: 60px;
+    height: 50px;
     background-color: #FFEAA7;
     display: flex;
     align-items: center;
@@ -51,6 +51,7 @@
     .boton-plus, p{
         margin-left: 10px;
         vertical-align: middle;
+        // font-size: 10px; pour mobile
         
     }
    

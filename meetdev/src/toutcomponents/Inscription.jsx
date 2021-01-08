@@ -1,11 +1,11 @@
 import React from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import "../assets/styles/inscription.scss";
+import "../assets/styles/conexion.scss";
 
-function Inscription() {
+const Inscription = () => {
   return (
-    <div className="container">
+    <div className="containers">
       <h1 className="myText">Meet Dev</h1>
       <Form className="conexion">
         <Form.Group controlId="formGroupName">
