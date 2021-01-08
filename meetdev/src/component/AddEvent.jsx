@@ -5,7 +5,8 @@ import Button from "react-bootstrap/Button";
 
 function AddEvent() {
   return (
-    <Form className="formulario">
+    <div className="formulario">
+    <Form>
       <h2>Ajouter des événements</h2>
       <Form.Group controlId="formBasicDescription">
         <Form.Label>Description</Form.Label>
@@ -20,6 +21,7 @@ function AddEvent() {
         Publier
       </Button>
     </Form>
+    </div>
   );
 }
 export default AddEvent;

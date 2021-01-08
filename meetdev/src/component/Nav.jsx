@@ -14,11 +14,11 @@ function Nav() {
       <div className="header__menu">
         <div className="header__menu--profile">
           <img src={logo} alt="user" />
-          <p>profile</p>
+          <p>Compte</p>
         </div>
         <ul>
           <li>
-            <a href="/">Compte</a>
+            <a href="/">Mon Profile</a>
           </li>
           <li>
             <a href="/">Déconnexion</a>
