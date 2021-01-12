@@ -11,7 +11,8 @@ const Inscription = () => {
   const [password, setPassword] = useState("");
   const [photo, setPhoto] = useState("");
 
-
+  let history = useHistory()
+  
   const inscription = () =>{
     Axios.post('http://localhost:4000/signUp', {
       name: name,
@@ -20,17 +21,18 @@ const Inscription = () => {
       photo: photo,
     }).then((reponse)=>{
       console.log(reponse);
+      
+        history.push("/");
+      
     })
+
   }
 
   const handleData = (e) =>{
     e.preventDefault()
   }
 
-  let history = useHistory()
-  function handleClick() {
-    history.push("/");
-  }
+
 
   return (
     <div className="containers">
@@ -77,8 +79,7 @@ const Inscription = () => {
           />
         </Form.Group>
         <div className="buttons">
-          <Button  onClick={handleClick} className="btn-block bouton-login">Connexion</Button>
-          <Button  onClick={inscription} className="bouton-inscription">créer une compte</Button>
+          <Button  onClick={inscription} className="btn-block bouton-login">S'inscrire</Button>
         </div>
       </Form>
     </div>
