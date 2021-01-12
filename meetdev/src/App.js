@@ -17,7 +17,7 @@ function App() {
       <Route exact path='/inscription' component={Inscription} />
       <Route exact path='/home' component={Home} />
       <Route exact path='/admin' component={AdminConexion} />
-      <Route exact path='/add-event' component={AddEvent} />
+      <Route exact path='/addEvent' component={AddEvent} />
     </Switch>
     {/* <AdminConexion /> */}
     {/* <Profile /> */}

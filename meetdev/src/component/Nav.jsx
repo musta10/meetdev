@@ -5,6 +5,11 @@ import logoHome from "../assets/icons/icon-home.svg";
 import logoGroup from "../assets/icons/icon-group.png";
 
 const Nav = () =>{
+
+  const signOut = () =>{
+    localStorage.clear();
+  }
+
   return (
     <header className="header">
       <p className="header__title">Meet Dev</p>
@@ -21,7 +26,7 @@ const Nav = () =>{
             <a href="/">Mon Profile</a>
           </li>
           <li>
-            <a href="/">Déconnexion</a>
+            <a href="/admin" onClick={signOut}>Déconnexion</a>
           </li>
         </ul>
       </div>

@@ -71,8 +71,8 @@ const Inscription = () => {
           />
         </Form.Group>
         <div className="buttons">
+          <Button  onClick={inscription} className="bouton-inscription">créer une compte</Button>
           <Button className="btn-block bouton-login">Connexion</Button>
-          <Button onClick={inscription} className="bouton-inscription">créer une compte</Button>
         </div>
       </Form>
     </div>

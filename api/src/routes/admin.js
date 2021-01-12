@@ -9,13 +9,14 @@ const saltRounds = 10;
 const checkToken = require('../middlewares')
 
 // CONEXION ADMIN
-routes.post("/dashboard", (req, res) => {
+routes.post("/admin", (req, res) => {
+  console.log(req.body);
     const password = req.body.password;
     const email = req.body.email;
     Mydb.query(
       `SELECT * FROM admin WHERE email = '${req.body.email}'`,
       function (err, result) {
-        console.log(result);
+        console.log("RESULT =>", result);
         if (err) {
           res.send("non");
         } else {
@@ -72,7 +73,7 @@ routes.post("/dashboard", (req, res) => {
   // });
   
   // AJOUTE EVENEMENT ADMIN
-  routes.post("/addEvent", checkToken, (req, res) => {
+  routes.post("/addevent", checkToken, (req, res) => {
     const description = req.body.description;
     const date = req.body.date;
   
