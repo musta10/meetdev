@@ -77,8 +77,9 @@ routes.post("/signIn", (req, res) => {
 
 
 
+
 // LISTE COMMENTAIRES
-routes.post("/Forum", (req, res) => {
+routes.post("/forum", (req, res) => {
   const name = req.body.name;
   const commentaire = req.body.commentaire;
   const date_publication = req.body.date_publication;
@@ -97,6 +98,22 @@ routes.post("/Forum", (req, res) => {
     }
   );
 });
+
+// GET EVENTS
+routes.get('/listevents', (req,res) =>{
+    try{
+      Mydb.query(`SELECT * FROM events`, function (err, result) {
+          if (err) throw err;
+          res.send(result)
+
+      })
+    } catch (err) {
+      res.status(403).send(err)
+    }
+})
+
+
+
 
 
 //  PROFILE USER

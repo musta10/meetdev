@@ -3,6 +3,7 @@ import Form from "react-bootstrap/Form";
 import Axios from 'axios'
 import Button from "react-bootstrap/Button";
 import "../assets/styles/conexion.scss";
+import { useHistory } from "react-router-dom";
 
 const Inscription = () => {
   const [name, setName] = useState("");
@@ -24,6 +25,11 @@ const Inscription = () => {
 
   const handleData = (e) =>{
     e.preventDefault()
+  }
+
+  let history = useHistory()
+  function handleClick() {
+    history.push("/");
   }
 
   return (
@@ -71,8 +77,8 @@ const Inscription = () => {
           />
         </Form.Group>
         <div className="buttons">
+          <Button  onClick={handleClick} className="btn-block bouton-login">Connexion</Button>
           <Button  onClick={inscription} className="bouton-inscription">créer une compte</Button>
-          <Button className="btn-block bouton-login">Connexion</Button>
         </div>
       </Form>
     </div>
