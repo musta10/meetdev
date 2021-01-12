@@ -12,8 +12,8 @@ const Inscription = () => {
   const [photo, setPhoto] = useState("");
 
   let history = useHistory()
-  
-  const inscription = () =>{
+
+  const signup = () =>{
     Axios.post('http://localhost:4000/signUp', {
       name: name,
       email: email,
@@ -79,7 +79,7 @@ const Inscription = () => {
           />
         </Form.Group>
         <div className="buttons">
-          <Button  onClick={inscription} className="btn-block bouton-login">S'inscrire</Button>
+          <Button  onClick={signup} className="btn-block bouton-login">S'inscrire</Button>
         </div>
       </Form>
     </div>

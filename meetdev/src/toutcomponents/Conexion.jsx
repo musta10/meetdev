@@ -7,12 +7,13 @@ import { useHistory } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
-const Conexion = () => {
+const Conexion = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
 
-  const conexion = () =>{
+  const signin = () =>{
+    console.log('sign');
     Axios.post('http://localhost:4000/signIn', {
       email: email,
       password: password,
@@ -30,8 +31,10 @@ const Conexion = () => {
   }
 
 
-  const handleData = (e) =>{
+  const handleSubmit = (e) =>{
     e.preventDefault()
+    signin()
+    props.history.push('/home')
   }
   let history = useHistory()
   function handleClick() {
@@ -42,7 +45,7 @@ const Conexion = () => {
   return (
     <div className="containers">
       <h1 className="myText">Meet Dev</h1>
-      <Form onSubmit={handleData} className="conexion">
+      <Form onSubmit={handleSubmit} className="conexion">
         <Form.Group controlId="formGroupEmail">
           <input
             onChange={(e) => {
@@ -66,7 +69,7 @@ const Conexion = () => {
           />
         </Form.Group>
         <div className="buttons">
-          <Button  onClick={conexion} className="btn-block bouton-login">Connexion</Button>
+          <Button  type="submit" className="btn-block bouton-login">Connexion</Button>
           <Button onClick={handleClick} className="bouton-inscription">créer une compte</Button>
         </div>
       </Form>

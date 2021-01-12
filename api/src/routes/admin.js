@@ -16,7 +16,7 @@ routes.post("/admin", (req, res) => {
     Mydb.query(
       `SELECT * FROM admin WHERE email = '${req.body.email}'`,
       function (err, result) {
-        console.log("RESULT =>", result);
+        console.log(result);
         if (err) {
           res.send("non");
         } else {

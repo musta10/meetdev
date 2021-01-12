@@ -3,7 +3,7 @@ import "../assets/styles/nav.scss";
 import logo from "../assets/icons/user-icon.png";
 import logoHome from "../assets/icons/icon-home.svg";
 import logoGroup from "../assets/icons/icon-group.png";
-
+import {Link} from  'react-router-dom'
 const Nav = () =>{
 
   const signOut = () =>{
@@ -13,8 +13,8 @@ const Nav = () =>{
   return (
     <header className="header">
       <p className="header__title">Meet Dev</p>
-     <a href="/"><img src={logoHome} alt="home" /></a> 
-     <a href="/"><img src={logoGroup} alt="events" /></a> 
+     <Link to="/"><img src={logoHome} alt="home" /></Link> 
+     <Link to="/"><img src={logoGroup} alt="events" /></Link> 
 
       <div className="header__menu">
         <div className="header__menu--profile">
@@ -23,10 +23,10 @@ const Nav = () =>{
         </div>
         <ul>
           <li>
-            <a href="/">Mon Profile</a>
+            <Link to="/">Mon Profile</Link>
           </li>
           <li>
-            <a href="/admin" onClick={signOut}>Déconnexion</a>
+            <Link to="/admin" onClick={signOut}>Déconnexion</Link>
           </li>
         </ul>
       </div>

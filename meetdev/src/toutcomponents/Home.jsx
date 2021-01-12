@@ -16,7 +16,7 @@ const Home = () => {
       <section className="portada">
         <img src={imgEvent} alt="evenement" />
         <div className="hover">
-          <h1 class="separ">Meet Dev</h1>
+          <h1 className="separ">Meet Dev</h1>
           <p>
             Vous Trouvez la liste des événements choisissez le meilleur
             événement qui vous convient
@@ -26,7 +26,7 @@ const Home = () => {
       <section className="portada">
         <img src={imgEvent2} alt="evenement" />
         <div className="hover">
-          <h1 class="separ">Meet Dev</h1>
+          <h1 className="separ">Meet Dev</h1>
           <p>
             Vous Trouverez la liste des événements choisissez le meilleur
             événement qui vous convient
