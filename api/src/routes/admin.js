@@ -6,6 +6,8 @@ const config = require("../configDb");
 const jwt = require("jsonwebtoken");
 const saltRounds = 10;
 
+const checkToken = require('../middlewares')
+
 // CONEXION ADMIN
 routes.post("/dashboard", (req, res) => {
     const password = req.body.password;
@@ -31,9 +33,9 @@ routes.post("/dashboard", (req, res) => {
                   );
                   console.log(token);
                   res.send({ token: token });
-                  console.log("you are admin");
+                  console.log("is admin");
                 } else {
-                  console.log("who are you");
+                  console.log("is not admin");
                   console.log(results);
                 }
               }
@@ -46,31 +48,31 @@ routes.post("/dashboard", (req, res) => {
     );
   });
   
-  // ADMIN TOKEN
-  routes.use("/addEvent", (req, res, next) => {
-    const authHeader = req.headers.authorizations;
-    console.log(req.headers);
-    const token = authHeader;
+  // // ADMIN TOKEN
+  // routes.use("/addEvent", (req, res, next) => {
+  //   const authHeader = req.headers.authorizations;
+  //   console.log(req.headers);
+  //   const token = authHeader;
   
-    if (token) {
-      console.log(token);
-      jwt.verify(token, config.secret, (err, decodedToken) => {
-        if (err) {
-          console.log(err);
-          res.status(403).send("oho");
-        } else {
-          console.log("test");
-          next();
-        }
-      });
-    } else {
-      console.log("bonjour");
-      res.status(403).send("oui");
-    }
-  });
+  //   if (token) {
+  //     console.log(token);
+  //     jwt.verify(token, config.secret, (err, decodedToken) => {
+  //       if (err) {
+  //         console.log(err);
+  //         res.status(403).send("no autorizado");
+  //       } else {
+  //         console.log("test");
+  //         next();
+  //       }
+  //     });
+  //   } else {
+  //     console.log("bonjour");
+  //     res.status(403).send("oui");
+  //   }
+  // });
   
   // AJOUTE EVENEMENT ADMIN
-  routes.post("/addEvent", (req, res) => {
+  routes.post("/addEvent", checkToken, (req, res) => {
     const description = req.body.description;
     const date = req.body.date;
   

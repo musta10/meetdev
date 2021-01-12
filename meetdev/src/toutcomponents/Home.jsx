@@ -18,7 +18,7 @@ const Home = () => {
         <div className="hover">
           <h1 class="separ">Meet Dev</h1>
           <p>
-            Vous Trouverez la liste des événements choisissez le meilleur
+            Vous Trouvez la liste des événements choisissez le meilleur
             événement qui vous convient
           </p>
         </div>
