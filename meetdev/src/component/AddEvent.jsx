@@ -8,6 +8,8 @@ const AddEvent = () => {
   const [description, setDescription] = useState("");
   const [date, setDate] = useState("");
 
+
+
   const addevent = () => {
     Axios.post("http://localhost:4000/addEvent", {
       description: description,
@@ -24,16 +26,16 @@ const AddEvent = () => {
     });
   };
 
-  const handleData = (e) =>{
+  const handleSubmit = (e) =>{
     e.preventDefault()
   }
 
 
   return (
     <div className="formulario">
-      <Form onSubmit={handleData}>
+      <Form onSubmit={handleSubmit}>
         <h2>Ajouter des événements</h2>
-        <Form.Group controlId="formBasicDescription">
+        <Form.Group>
           <Form.Label>Description</Form.Label>
           <Form.Control
             onChange={(e) => {
@@ -48,7 +50,6 @@ const AddEvent = () => {
           onChange={(e) => {
             setDate(e.target.value);
           }}
-          controlId="formBasicDate"
         >
           <Form.Label>Date de l'événement</Form.Label>
           <Form.Control name="date" type="date" placeholder="date" />

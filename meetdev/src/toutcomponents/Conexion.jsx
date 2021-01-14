@@ -13,35 +13,33 @@ const Conexion = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  // const {register,erros,handleSubmit} = useForm();
-  // const onSubmit = (data) =>{
-  //   console.log(data);
-  // }
-
-
-  const signin = () =>{
-    console.log('sign');
-    Axios.post('http://localhost:4000/signIn', {
-      email: email,
-      password: password,
-    }).then((reponse)=>{
-      console.log(reponse);
-      let decoded = jwt.decode(reponse.data.token)
-      console.log(decoded)
-      if (decoded) {
-        localStorage.setItem('id', decoded.id)
-        localStorage.setItem('name', decoded.name)
-        localStorage.setItem('token', reponse.data.token) 
-        localStorage.setItem('email', decoded.email)
-      }
-    })
-  }
 
 
   const handleSubmit = (e) =>{
-    e.preventDefault()
-    signin()
-    props.history.push('/home')
+    try{
+      e.preventDefault()
+      Axios.post('http://localhost:4000/signIn', {
+        email: email,
+        password: password,
+      }).then((reponse)=>{
+        console.log(reponse);
+        let decoded = jwt.decode(reponse.data.token)
+        console.log(decoded)
+        if (decoded) {
+          localStorage.setItem('id', decoded.id)
+          localStorage.setItem('name', decoded.name)
+          localStorage.setItem('token', reponse.data.token) 
+          localStorage.setItem('email', decoded.email)
+        } 
+        props.history.push('/home')
+      }).catch(err => {
+        console.log("email invalide");
+      })
+      
+
+    }catch (err) {
+      console.log(err);
+    }
   }
   let history = useHistory()
   function handleClick() {
@@ -49,11 +47,18 @@ const Conexion = (props) => {
   }
 
 
+
+
+
+
+
+
+
   return (
     <div className="containers">
       <h1 className="myText">Meet Dev</h1>
       <Form onSubmit={handleSubmit} className="conexion">
-        <Form.Group controlId="formGroupEmail">
+        <Form.Group>
           <input
             onChange={(e) => {
               setEmail(e.target.value);
@@ -64,7 +69,7 @@ const Conexion = (props) => {
             placeholder="Email"
           />
         </Form.Group>
-        <Form.Group controlId="formGroupPassword">
+        <Form.Group>
           <input
             onChange={(e) => {
               setPassword(e.target.value);

@@ -68,13 +68,12 @@ routes.post("/signIn", (req, res) => {
             }
           );
         } else {
-          console.log("NO email");
+          res.status(403).send('non identifie')
         }
       }
     }
   );
 });
-
 
 
 
@@ -123,18 +122,14 @@ routes.put("/events/:id", function (req, res) {
 
 
 // DELETE EVENT
-routes.delete("/events/:id", async function (req, res) {
+routes.delete("/events/:id", function (req, res) {
 
   try {
-      db.query(`DELETE FROM events WHERE id = '${req.params.id}'`, async function (err, results) {
-          if (err) {
-              res.send(err)
-          } else {
-              res.status(200).send("Delete")
-          }
-      })
+      Mydb.query(`DELETE FROM events WHERE id = '${req.params.id}'`);
+      res.status(200).send("Delete")
 
   } catch (err) {
+    console.log(err);
       res.status(400).send(err)
 
   }

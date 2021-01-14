@@ -2,13 +2,13 @@ import React from 'react'
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import '../assets/styles/profile.scss'
+import YourProfile from '../component/YourProfile'
 
 
 const Profile = ()  => {    
     return (
         <div className="formulario">
-        <Form>
-            <h2>Votre Profile</h2>
+        <Form>   
   <Form.Group controlId="formBasicEmail">
     <Form.Label>Email</Form.Label>
     <Form.Control type="email" placeholder="email" />
@@ -31,6 +31,7 @@ const Profile = ()  => {
   Modifier
   </Button>
 </Form>
+<YourProfile />
 </div>
     )
 

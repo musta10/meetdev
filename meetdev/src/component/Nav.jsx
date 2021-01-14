@@ -23,7 +23,7 @@ const Nav = () =>{
         </div>
         <ul>
           <li>
-            <Link to="/">Mon Profile</Link>
+            <Link to="/profile">Mon Profile</Link>
           </li>
           <li>
             <Link to="/" onClick={signOut}>Déconnexion</Link>

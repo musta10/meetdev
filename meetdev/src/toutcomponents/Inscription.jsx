@@ -28,7 +28,7 @@ const Inscription = () => {
 
   }
 
-  const handleData = (e) =>{
+  const handleSubmit = (e) =>{
     e.preventDefault()
   }
 
@@ -37,7 +37,7 @@ const Inscription = () => {
   return (
     <div className="containers">
       <h1 className="myText">Meet Dev</h1>
-      <Form className="conexion" onSubmit={handleData}>
+      <Form className="conexion" onSubmit={handleSubmit}>
         <Form.Group controlId="formGroupName">
           <input
             onChange={(e) => {
@@ -79,7 +79,7 @@ const Inscription = () => {
           />
         </Form.Group>
         <div className="buttons">
-          <Button  onClick={signup} className="btn-block bouton-login">S'inscrire</Button>
+          <Button type="submit" onClick={signup} className="btn-block bouton-login">S'inscrire</Button>
         </div>
       </Form>
     </div>
