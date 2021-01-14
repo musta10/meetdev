@@ -3,13 +3,20 @@ import "../assets/styles/conexion.scss";
 import Axios from "axios";
 import jwt from "jsonwebtoken";
 import { useHistory } from "react-router-dom";
-
+// import { useForm } from 'react-hook-form'
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+
+
 
 const Conexion = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  // const {register,erros,handleSubmit} = useForm();
+  // const onSubmit = (data) =>{
+  //   console.log(data);
+  // }
 
 
   const signin = () =>{

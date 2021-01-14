@@ -111,13 +111,40 @@ routes.get('/listevents', (req,res) =>{
       res.status(403).send(err)
     }
 })
+routes.put("/events/:id", function (req, res) {
+  let events = ` UPDATE events
+    SET description = '${req.body.description}', date  = '${req.body.date}' 
+    WHERE events.id = ${req.params.id}`;
+  Mydb.query(events, function (err, result) {
+    if (err) console.log(err);
+    res.send(result);
+  });
+});
 
+
+// DELETE EVENT
+routes.delete("/events/:id", async function (req, res) {
+
+  try {
+      db.query(`DELETE FROM events WHERE id = '${req.params.id}'`, async function (err, results) {
+          if (err) {
+              res.send(err)
+          } else {
+              res.status(200).send("Delete")
+          }
+      })
+
+  } catch (err) {
+      res.status(400).send(err)
+
+  }
+});
 
 
 
 
 //  PROFILE USER
-routes.get("/profile/:id", (req, res) => {
+routes.get("/user/:id", (req, res) => {
   try {
     if (!req.params.id) throw "NO USER";
     Mydb.query(
@@ -134,7 +161,7 @@ routes.get("/profile/:id", (req, res) => {
   }
 });
 
-routes.put("/update/:id", function (req, res) {
+routes.put("/profile/:id", function (req, res) {
   let profile = ` UPDATE users
     SET name = '${req.body.name}', email  = '${req.body.email}', 
     password = '${req.body.password}', photo = '${req.body.photo}'
