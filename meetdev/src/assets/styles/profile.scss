@@ -9,13 +9,11 @@ body{
 .formulario{
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     margin: 3em;
-    
-    form  {
-        width: 300px;
-        height: 300px;
-    }
+            form  {
+                width: 40%;
+            }
 
 
 }

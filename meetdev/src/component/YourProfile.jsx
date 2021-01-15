@@ -6,22 +6,22 @@ import Button from 'react-bootstrap/Button';
 import { useHistory } from "react-router-dom";
 
 
-const userProfile = () => {
-  let history = useHistory();
+const UserProfile = () => {
 
-  function Homeclick() {
+  let history = useHistory();
+  function Homepush() {
     history.push("/home");
   }
   
     return (
-        <Card style={{ width: '18rem' }}>
+        <Card className="p-3" style={{ width: '18rem' }}>
         <h3>Votre Profile</h3>
         <Card.Header className="logos"> <img style={{width:80, height:80, borderRadius: '50%'}} src={imageUser} alt=""/></Card.Header>
         <ListGroup variant="flush">
           <ListGroup.Item>Prénom</ListGroup.Item>
           <ListGroup.Item>Email</ListGroup.Item>
           <ListGroup.Item>Mot de passe</ListGroup.Item>
-          <Button  onClick={Homeclick} className="btn-block bouton-login">Page Accueil</Button>
+          <Button  onClick={Homepush} className="btn-block bouton-login">Page Accueil</Button>
         </ListGroup>
       </Card>
         
@@ -29,4 +29,4 @@ const userProfile = () => {
 
 }
 
-export default userProfile;
+export default UserProfile;

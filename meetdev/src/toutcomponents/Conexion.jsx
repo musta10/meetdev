@@ -12,8 +12,7 @@ import Button from "react-bootstrap/Button";
 const Conexion = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-
+  const [msg, setMsg] = useState("");
 
   const handleSubmit = (e) =>{
     try{
@@ -33,7 +32,8 @@ const Conexion = (props) => {
         } 
         props.history.push('/home')
       }).catch(err => {
-        console.log("email invalide");
+        console.log("Email invalide");
+        setMsg("Email invalide")
       })
       
 
@@ -57,8 +57,10 @@ const Conexion = (props) => {
   return (
     <div className="containers">
       <h1 className="myText">Meet Dev</h1>
+     
       <Form onSubmit={handleSubmit} className="conexion">
         <Form.Group>
+        <div style={{color: 'red'}}>{msg}</div>
           <input
             onChange={(e) => {
               setEmail(e.target.value);
