@@ -38,6 +38,12 @@ const Home = () => {
       </div>
     </div>
     <div className="information">
+      <ul>
+        <li>Poser des questions</li>
+        <li>Différentes solutions</li>
+        <li>Trouver des places(billets..)</li>
+        <li>Rencontres</li>
+      </ul>
         
 
     </div>

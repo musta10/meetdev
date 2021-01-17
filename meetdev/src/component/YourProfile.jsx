@@ -20,8 +20,8 @@ const UserProfile = () => {
         <ListGroup variant="flush">
           <ListGroup.Item>Prénom</ListGroup.Item>
           <ListGroup.Item>Email</ListGroup.Item>
-          <ListGroup.Item>Mot de passe</ListGroup.Item>
-          <Button  onClick={Homepush} className="btn-block bouton-login">Page Accueil</Button>
+          {/* <ListGroup.Item>Mot de passe</ListGroup.Item> */}
+          <Button  onClick={Homepush} style={{width: '200px'}} className="btn-block mx-auto bouton-login">Page Accueil</Button>
         </ListGroup>
       </Card>
         
