@@ -6,6 +6,7 @@ import { useHistory } from "react-router-dom";
 // import { useForm } from 'react-hook-form'
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import auth from '../component/Auth'
 
 
 
@@ -30,7 +31,10 @@ const Conexion = (props) => {
           localStorage.setItem('token', reponse.data.token) 
           localStorage.setItem('email', decoded.email)
         } 
-        props.history.push('/home')
+        auth.login(() =>{
+          props.history.push('/home')
+        })
+        
       }).catch(err => {
         console.log("Email invalide");
         setMsg("Email invalide")

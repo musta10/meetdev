@@ -6,16 +6,17 @@ import AdminConexion from './component/AdminConexion'
 // import Nav from './component/Nav'
 import AddEvent from './component/AddEvent'
 import Profile from './component/EditProfile'
-
 import Home from './toutcomponents/Home'
+
+import {ProtectedRoute} from '../src/component/protected.route'
 
 function App() {
   return (
     <BrowserRouter>
     <Switch>
       <Route exact path='/' component={Conexion} />
+      <ProtectedRoute exact path='/home' component={Home} />
       <Route exact path='/inscription' component={Inscription} />
-      <Route exact path='/home' component={Home} />
       <Route exact path='/admin' component={AdminConexion} />
       <Route exact path='/addEvent' component={AddEvent} />
       <Route exact path='/profile' component={Profile} />

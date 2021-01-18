@@ -8,7 +8,6 @@ import { useHistory } from "react-router-dom";
 
 
 
-
 const AdminConexion = () =>  {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");    
