@@ -14,7 +14,7 @@ const Nav = () =>{
     <header className="header">
       <p className="header__title">Meet Dev</p>
      <Link to="/home"><img src={logoHome} alt="home" /></Link> 
-     <Link to="/"><img src={logoGroup} alt="events" /></Link> 
+     <Link to="/events"><img src={logoGroup} alt="events" /></Link> 
 
       <div className="header__menu">
         <div className="header__menu--profile">
