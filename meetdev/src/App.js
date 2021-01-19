@@ -19,7 +19,7 @@ function App() {
       <ProtectedRoute exact path='/home' component={Home} />
       <Route exact path='/inscription' component={Inscription} />
       <Route exact path='/admin' component={AdminConexion} />
-      <Route exact path='/addEvent' component={AddEvent} />
+      <ProtectedRoute exact path='/addEvent' component={AddEvent} />
       <Route exact path='/events' component={Events} />
       <Route exact path='/profile' component={Profile} />
     </Switch>
