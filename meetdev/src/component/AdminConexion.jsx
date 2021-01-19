@@ -3,11 +3,17 @@ import Axios from "axios";
 import "../assets/styles/admin.scss";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import { useHistory } from "react-router-dom";
+
+
+
 
 const AdminConexion = () =>  {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");    
   const [password, setPassword] = useState("");    
+
+  let history = useHistory();
 
   const admin = () =>{
     console.log(name,email,password);
@@ -25,6 +31,7 @@ const AdminConexion = () =>  {
     
     ).then((reponse)=>{
       console.log(reponse);
+      history.push("/addEvent");
     })
     .catch((err) => {
       console.log(err)
@@ -36,7 +43,7 @@ const AdminConexion = () =>  {
   }
 
     return (
-      <div className="formulario">
+      <div className="formulario-admin">
         <Form onSubmit={handleData}>
             <h2>Conexion Admin</h2>
   <Form.Group>
@@ -65,6 +72,9 @@ const AdminConexion = () =>  {
   <Button onClick={admin} variant="primary" type="submit">
     Conexion
   </Button>
+  {/* <Button style={{marginLeft: 15}} variant="danger" type="submit">
+  Déconnexion
+  </Button> */}
 </Form>
 </div>
     )

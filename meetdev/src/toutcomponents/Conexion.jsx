@@ -3,50 +3,61 @@ import "../assets/styles/conexion.scss";
 import Axios from "axios";
 import jwt from "jsonwebtoken";
 import { useHistory } from "react-router-dom";
-
+// import { useForm } from 'react-hook-form'
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import auth from '../component/Auth'
+
+
 
 const Conexion = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-
-  const signin = () =>{
-    console.log('sign');
-    Axios.post('http://localhost:4000/signIn', {
-      email: email,
-      password: password,
-    }).then((reponse)=>{
-      console.log(reponse);
-      let decoded = jwt.decode(reponse.data.token)
-      console.log(decoded)
-      if (decoded) {
-        localStorage.setItem('id', decoded.id)
-        localStorage.setItem('name', decoded.name)
-        localStorage.setItem('token', reponse.data.token) 
-        localStorage.setItem('email', decoded.email)
-      }
-    })
-  }
-
+  const [msg, setMsg] = useState("");
 
   const handleSubmit = (e) =>{
-    e.preventDefault()
-    signin()
-    props.history.push('/home')
+    try{
+      e.preventDefault()
+      Axios.post('http://localhost:4000/signIn', {
+        email: email,
+        password: password,
+      }).then((reponse)=>{
+        console.log(reponse);
+        let decoded = jwt.decode(reponse.data.token)
+        console.log(decoded)
+        if (decoded) {
+          localStorage.setItem('id', decoded.id)
+          localStorage.setItem('name', decoded.name)
+          localStorage.setItem('token', reponse.data.token) 
+          localStorage.setItem('email', decoded.email)
+        } 
+        auth.login(() =>{
+          props.history.push('/home')
+        })
+        
+      }).catch(err => {
+        console.log("Email invalide");
+        setMsg("Email invalide")
+      })
+      
+
+    }catch (err) {
+      console.log(err);
+    }
   }
+
   let history = useHistory()
   function handleClick() {
     history.push("/Inscription");
   }
 
-
   return (
     <div className="containers">
       <h1 className="myText">Meet Dev</h1>
+     
       <Form onSubmit={handleSubmit} className="conexion">
-        <Form.Group controlId="formGroupEmail">
+        <Form.Group>
+        <div style={{color: 'red'}}>{msg}</div>
           <input
             onChange={(e) => {
               setEmail(e.target.value);
@@ -57,7 +68,7 @@ const Conexion = (props) => {
             placeholder="Email"
           />
         </Form.Group>
-        <Form.Group controlId="formGroupPassword">
+        <Form.Group>
           <input
             onChange={(e) => {
               setPassword(e.target.value);

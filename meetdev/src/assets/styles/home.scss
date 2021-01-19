@@ -1,6 +1,8 @@
+@import "./variables.scss";
+
 .container{
     width: 80%;
-    border: 1px solid black;
+    // border: 1px solid black;
     margin: 1em auto;
     p{
         text-align: center;
@@ -43,7 +45,7 @@
 
 .actualite{
     height: 50px;
-    background-color: #FFEAA7;
+    background-color: $color-jaune;
     display: flex;
     align-items: center;
     border-radius: 10px;
@@ -60,7 +62,16 @@
 .information {
     width: 50%;
     height: 250px;
-    border: 1px solid black;
+    border-radius: 10px;
     margin: 2rem auto;
     background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+    ul {
+        list-style-type: none;
+        text-align: center;
+        margin: auto;
+    }
+    ul li {
+        padding: 20px;
+    }
 }

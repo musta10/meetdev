@@ -42,7 +42,7 @@ routes.post("/admin", (req, res) => {
               }
             );
           } else {
-            console.log("faux mail");
+            res.status(403).send('You are not admin')
           }
         }
       }

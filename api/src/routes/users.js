@@ -68,13 +68,12 @@ routes.post("/signIn", (req, res) => {
             }
           );
         } else {
-          console.log("NO email");
+          res.status(403).send('non identifie')
         }
       }
     }
   );
 });
-
 
 
 
@@ -111,13 +110,36 @@ routes.get('/listevents', (req,res) =>{
       res.status(403).send(err)
     }
 })
+routes.put("/events/:id", function (req, res) {
+  let events = ` UPDATE events
+    SET description = '${req.body.description}', date  = '${req.body.date}' 
+    WHERE events.id = ${req.params.id}`;
+  Mydb.query(events, function (err, result) {
+    if (err) console.log(err);
+    res.send(result);
+  });
+});
 
+
+// DELETE EVENT
+routes.delete("/events/:id", function (req, res) {
+
+  try {
+      Mydb.query(`DELETE FROM events WHERE id = '${req.params.id}'`);
+      res.status(200).send("Delete")
+
+  } catch (err) {
+    console.log(err);
+      res.status(400).send(err)
+
+  }
+});
 
 
 
 
 //  PROFILE USER
-routes.get("/profile/:id", (req, res) => {
+routes.get("/user/:id", (req, res) => {
   try {
     if (!req.params.id) throw "NO USER";
     Mydb.query(
@@ -134,7 +156,7 @@ routes.get("/profile/:id", (req, res) => {
   }
 });
 
-routes.put("/update/:id", function (req, res) {
+routes.put("/profile/:id", function (req, res) {
   let profile = ` UPDATE users
     SET name = '${req.body.name}', email  = '${req.body.email}', 
     password = '${req.body.password}', photo = '${req.body.photo}'

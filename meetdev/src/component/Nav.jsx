@@ -13,8 +13,8 @@ const Nav = () =>{
   return (
     <header className="header">
       <p className="header__title">Meet Dev</p>
-     <Link to="/"><img src={logoHome} alt="home" /></Link> 
-     <Link to="/"><img src={logoGroup} alt="events" /></Link> 
+     <Link to="/home"><img src={logoHome} alt="home" /></Link> 
+     <Link to="/events"><img src={logoGroup} alt="events" /></Link> 
 
       <div className="header__menu">
         <div className="header__menu--profile">
@@ -23,10 +23,10 @@ const Nav = () =>{
         </div>
         <ul>
           <li>
-            <Link to="/">Mon Profile</Link>
+            <Link to="/profile">Mon Profile</Link>
           </li>
           <li>
-            <Link to="/admin" onClick={signOut}>Déconnexion</Link>
+            <Link to="/" onClick={signOut}>Déconnexion</Link>
           </li>
         </ul>
       </div>
