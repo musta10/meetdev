@@ -9,7 +9,8 @@ import Events from './toutcomponents/EventsList'
 import Profile from './component/EditProfile'
 import Home from './toutcomponents/Home'
 
-import {ProtectedRoute} from '../src/component/protected.route'
+import {ProtectedRoute} from './component/protectedRoute'
+import {ProtectedAdmin} from './component/protectedAdmin'
 
 function App() {
   return (
@@ -19,9 +20,9 @@ function App() {
       <ProtectedRoute exact path='/home' component={Home} />
       <Route exact path='/inscription' component={Inscription} />
       <Route exact path='/admin' component={AdminConexion} />
-      <ProtectedRoute exact path='/addEvent' component={AddEvent} />
-      <Route exact path='/events' component={Events} />
-      <Route exact path='/profile' component={Profile} />
+      <ProtectedAdmin exact path='/addEvent' component={AddEvent} />
+      <ProtectedRoute exact path='/events' component={Events} />
+      <ProtectedRoute exact path='/profile' component={Profile} />
     </Switch>
     {/* <AdminConexion /> */}
     {/* <Profile /> */}
