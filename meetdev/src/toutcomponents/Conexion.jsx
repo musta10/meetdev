@@ -45,18 +45,11 @@ const Conexion = (props) => {
       console.log(err);
     }
   }
+
   let history = useHistory()
   function handleClick() {
     history.push("/Inscription");
   }
-
-
-
-
-
-
-
-
 
   return (
     <div className="containers">

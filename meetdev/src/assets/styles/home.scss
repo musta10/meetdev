@@ -1,3 +1,5 @@
+@import "./variables.scss";
+
 .container{
     width: 80%;
     // border: 1px solid black;
@@ -43,7 +45,7 @@
 
 .actualite{
     height: 50px;
-    background-color: #FFEAA7;
+    background-color: $color-jaune;
     display: flex;
     align-items: center;
     border-radius: 10px;
