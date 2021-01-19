@@ -1,5 +1,5 @@
 export const listEvents = (events) => ({
-    type: "ADD-EVENTS",
+    type: "LIST-EVENTS",
     events: events
 })
 

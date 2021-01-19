@@ -4,12 +4,12 @@ const initialState = {
 }
 
 
-const productsReducer = (state = initialState, action) => {
+const eventsReducer = (state = initialState, action) => {
     switch (action.type) {
-        case "ADD-EVENTS": 
+        case "LIST-EVENTS": 
             return {
                 ...state,
-                events: action.events
+                events: [...state.events, action.event]
             };
         case "ADD-EVENT": 
             return {
@@ -24,4 +24,4 @@ const productsReducer = (state = initialState, action) => {
     }
 }
 
-export default productsReducer   
+export default eventsReducer   
