@@ -15,8 +15,6 @@ const AddEvent = () => {
     Axios.post("http://localhost:4000/addEvent", {
       description: description,
       date: date,
-
-      
     },
     {
       headers: {
