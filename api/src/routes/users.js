@@ -97,6 +97,17 @@ routes.post("/forum", (req, res) => {
     }
   );
 });
+// OBTENIR COMMENTAIRES
+routes.get("/forum", (req, res) => {
+      try {
+        Mydb.query(`SELECT * FROM commentaires`, function (err, result) {
+          if(err) throw err
+          res.send(result)
+        })
+      } catch (err) {
+        res.status(403).send(err)
+      }
+})
 
 // GET EVENTS
 routes.get('/listevents', (req,res) =>{
@@ -110,6 +121,7 @@ routes.get('/listevents', (req,res) =>{
       res.status(403).send(err)
     }
 })
+
 routes.put("/events/:id", function (req, res) {
   let events = ` UPDATE events
     SET description = '${req.body.description}', date  = '${req.body.date}' 
