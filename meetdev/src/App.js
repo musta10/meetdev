@@ -8,6 +8,7 @@ import AddEvent from './component/AddEvent'
 import Events from './toutcomponents/EventsList'
 import Profile from './component/EditProfile'
 import Home from './toutcomponents/Home'
+import AdminList from './component/AdminList'
 
 import {ProtectedRoute} from './component/protectedRoute'
 import {ProtectedAdmin} from './component/protectedAdmin'
@@ -21,6 +22,7 @@ function App() {
       <Route exact path='/inscription' component={Inscription} />
       <Route exact path='/admin' component={AdminConexion} />
       <ProtectedAdmin exact path='/addEvent' component={AddEvent} />
+      <ProtectedAdmin exact path='/EventList' component={AdminList} />
       <ProtectedRoute exact path='/events' component={Events} />
       <ProtectedRoute exact path='/profile' component={Profile} />
     </Switch>
