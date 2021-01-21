@@ -14,29 +14,13 @@
     overflow: hidden;
     padding: 10px;
 }
-.portada:hover .hover{
-    transform: translate(0) rotate(0);
-    
-}
+
 .portada img{
     width: 100%;
     height: 100%;
-    vertical-align: top;
 }
 .separ{
     margin-bottom: 20px;
-}
-.hover{
-    position: absolute;
-    /* background: rgba(255, 234, 167, 0.705); */
-    background: rgba(237, 228, 255, 0.74);
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    padding: 40px 10px;
-    transform: translate(100%, -100%) rotate(180deg);
-    transition: transform 1s;
 }
 
 .fleximg{
@@ -44,15 +28,16 @@
 }
 
 .actualite{
-    height: 50px;
+    height: fit-content;
     background-color: $color-jaune;
+    padding: .4rem;
     display: flex;
     align-items: center;
     border-radius: 10px;
-    
     .boton-plus, p{
         margin-left: 10px;
         vertical-align: middle;
+        align-self: center;
         // font-size: 10px; pour mobile
         
     }
@@ -61,7 +46,7 @@
 
 .information {
     width: 50%;
-    height: 250px;
+    // height: 250px;
     border-radius: 10px;
     margin: 2rem auto;
     background-color: white;

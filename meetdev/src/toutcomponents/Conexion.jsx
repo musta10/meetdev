@@ -16,13 +16,11 @@ const Conexion = (props) => {
   const [msg, setMsg] = useState("");
 
   const handleSubmit = (e) =>{
-    try{
       e.preventDefault()
       Axios.post('http://localhost:4000/signIn', {
         email: email,
         password: password,
       }).then((reponse)=>{
-        console.log(reponse);
         let decoded = jwt.decode(reponse.data.token)
         console.log(decoded)
         if (decoded) {
@@ -35,16 +33,10 @@ const Conexion = (props) => {
           props.history.push('/home')
         })
         
-      }).catch(err => {
-        console.log("Email invalide");
-        setMsg("Email invalide")
-      })
-      
-
-    }catch (err) {
-      console.log(err);
-    }
-  }
+      }).catch(err => 
+        setMsg(err.response.data)
+      )
+}
 
   let history = useHistory()
   function handleClick() {

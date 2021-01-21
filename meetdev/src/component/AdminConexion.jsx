@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import Axios from "axios";
-import "../assets/styles/admin.scss";
+import "../assets/styles/adminConexion.scss";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { useHistory } from "react-router-dom";
+import auth from './Auth'
 
 
 
@@ -31,7 +32,10 @@ const AdminConexion = () =>  {
     
     ).then((reponse)=>{
       console.log(reponse);
-      history.push("/addEvent");
+      auth.loginAdmin(() =>{
+        history.push("/EventList");
+      })
+      
     })
     .catch((err) => {
       console.log(err)

@@ -1,21 +1,22 @@
-import "../assets/styles/admin.scss";
+import "../assets/styles/adminAdd.scss";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import React, { useState } from "react";
 import Axios from "axios";
+import { useHistory } from "react-router-dom";
+import auth from './Auth'
 
 const AddEvent = () => {
   const [description, setDescription] = useState("");
   const [date, setDate] = useState("");
 
-
+  let history = useHistory()
 
   const addevent = () => {
+
     Axios.post("http://localhost:4000/addEvent", {
       description: description,
       date: date,
-
-      
     },
     {
       headers: {
@@ -23,6 +24,9 @@ const AddEvent = () => {
       }
   }).then((reponse) => {
       console.log(reponse);
+      auth.loginAdmin(() =>{
+        history.push("/EventList");
+      })
     });
   };
 

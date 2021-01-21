@@ -40,38 +40,37 @@ routes.post("/signIn", (req, res) => {
     `SELECT * FROM users WHERE email = '${email}'`,
     function (err, result) {
       console.log(result);
-      if (err) {
-        res.send("non");
-      } else {
-        if (result.length > 0) {
-          bcrypt.compare(
-            password,
-            result[0].password,
-            function (error, results) {
-              console.log(results);
-              if (results === true) {
-                let token = jwt.sign(
-                  {
-                    id: result[0].id,
-                    email: result[0].email,
-                    name: result[0].name,
-                  },
-                  config.secret,
-                  { expiresIn: 86400 }
-                );
-                console.log(token);
-                res.send({ token: token });
-                console.log("Your connected");
-              } else {
-                console.log("who are you");
-              }
+      if (err) throw err
+      if (result.length > 0) {
+        bcrypt.compare(
+          password,
+          result[0].password,
+          function (error, results) {
+            console.log(results);
+            if (results) {
+              let token = jwt.sign(
+                {
+                  id: result[0].id,
+                  email: result[0].email,
+                  name: result[0].name,
+                },
+                config.secret,
+                { expiresIn: 86400 }
+              );
+              console.log(token);
+              res.send({ token: token });
+              console.log("Your connected");
+            } else {
+              res.status(401).send('mouvais mot de pass')
+              console.log("who are you");
             }
-          );
-        } else {
-          res.status(403).send('non identifie')
-        }
+          }
+        );
+      } else {
+        res.status(403).send('non identifie')
       }
     }
+  
   );
 });
 
@@ -97,6 +96,17 @@ routes.post("/forum", (req, res) => {
     }
   );
 });
+// OBTENIR COMMENTAIRES
+routes.get("/forum", (req, res) => {
+      try {
+        Mydb.query(`SELECT * FROM commentaires`, function (err, result) {
+          if(err) throw err;
+          res.send(result)
+        })
+      } catch (err) {
+        res.status(403).send(err)
+      }
+})
 
 // GET EVENTS
 routes.get('/listevents', (req,res) =>{
@@ -110,6 +120,7 @@ routes.get('/listevents', (req,res) =>{
       res.status(403).send(err)
     }
 })
+
 routes.put("/events/:id", function (req, res) {
   let events = ` UPDATE events
     SET description = '${req.body.description}', date  = '${req.body.date}' 

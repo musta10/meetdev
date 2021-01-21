@@ -4,7 +4,7 @@ const initialState = {
     name: "",
     email: "",
     id: "",
-    user_commentaires: []
+    // user_commentaires: []
 }
 
 const userReducer = (state = initialState, action) => {
@@ -25,11 +25,11 @@ const userReducer = (state = initialState, action) => {
                 email: "",
                 id: "",
             }
-        case "USER-COMMENTAIRES":
-            return {
-                ...state,
-                user_commentaires: [...state.user_commentaires, action.user_commentaires]
-            }
+        // case "USER-COMMENTAIRES":
+        //     return {
+        //         ...state,
+        //         user_commentaires: [...state.user_commentaires, action.user_commentaires]
+        //     }
         default: {
             return {
                 ...state
