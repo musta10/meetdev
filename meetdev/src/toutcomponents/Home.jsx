@@ -15,21 +15,9 @@ const Home = () => {
       <article className="fleximg">
       <section className="portada">
         <img src={imgEvent} alt="evenement" />
-        {/* <div className="hover">
-          <h1 className="separ">Meet Dev</h1>
-          <p>
-            Vous Trouvez  tout la liste des Événements
-          </p>
-        </div> */}
       </section>
       <section className="portada">
         <img src={imgEvent2} alt="evenement" />
-        {/* <div className="hover">
-          <h1 className="separ">Meet Dev</h1>
-          <p>
-            Vous Trouvez tout la liste des événements
-          </p>
-        </div> */}
       </section>
       </article>
       <div className="actualite">
@@ -44,8 +32,6 @@ const Home = () => {
         <li>Trouver des places(billets..)</li>
         <li>Rencontres</li>
       </ul>
-        
-
     </div>
     </>
     

@@ -22,7 +22,6 @@ module.exports = (req,res, next) =>{
         }
       });
     } else {
-    //   console.log(test);
       res.status(403).send("no autorizado");
     }
 }

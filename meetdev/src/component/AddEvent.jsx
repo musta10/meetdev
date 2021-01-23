@@ -14,7 +14,7 @@ const AddEvent = () => {
 
   const addevent = () => {
 
-    Axios.post("http://localhost:4000/addEvent", {
+    Axios.post("http://localhost:4000/addevent", {
       description: description,
       date: date,
     },
