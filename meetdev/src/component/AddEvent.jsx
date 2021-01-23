@@ -59,7 +59,7 @@ const AddEvent = () => {
           <Form.Control name="date" type="date" placeholder="date" />
         </Form.Group>
 
-        <Button onClick={addevent} variant="primary" type="submit">
+        <Button className="Public" onClick={addevent} variant="primary" type="submit">
           Publier
         </Button>
       </Form>
