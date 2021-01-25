@@ -79,8 +79,8 @@ const AdminConexion = () =>  {
     Conexion
   </Button>
   {/* <Button style={{marginLeft: 15}} variant="danger" type="submit">
-  Déconnexion
-  </Button> */}
+Déconnexion
+  </Button> */}  
 </Form>
 </div>
     )
