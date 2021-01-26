@@ -21,12 +21,6 @@ const AdminList = () => {
    
         return(
             <>
-<<<<<<< HEAD
-            <p>Hello</p>
-            <h1>Admin</h1>
-            <Button onClick={addEvent} variant="primary">
-           Ajoute un evenement
-=======
             <h4 style={{textAlign: 'center', marginTop: 20}}>Evenements</h4>
             <article className="card_event">
               <div className="date-information">
@@ -41,7 +35,6 @@ const AdminList = () => {
             <div className="button">
             <Button className="add_button" onClick={addEvent} variant="primary">
            Ajouter un évènement
->>>>>>> 8d18bc2be1de492ce332f1e3cc493ea67a5cdd12
           </Button>
           </div>
           </>

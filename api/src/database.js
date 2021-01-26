@@ -9,13 +9,12 @@ var Myconnection = mysql.createConnection({
     database: 'mustadev'
 })
 
-Myconnection.connect(function (errr){
-    if(errr){
-        throw errr;rs
+Myconnection.connect(function (err){
+    if(err){
+        throw err
      }else{
         console.log('DB est Connecté');
      }
 });
-
 
 module.exports = Myconnection;
