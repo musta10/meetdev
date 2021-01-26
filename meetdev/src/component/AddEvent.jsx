@@ -14,7 +14,7 @@ const AddEvent = () => {
 
   const addevent = () => {
 
-    Axios.post("http://localhost:4000/addEvent", {
+    Axios.post("http://localhost:4000/addevent", {
       description: description,
       date: date,
     },
@@ -59,7 +59,7 @@ const AddEvent = () => {
           <Form.Control name="date" type="date" placeholder="date" />
         </Form.Group>
 
-        <Button onClick={addevent} variant="primary" type="submit">
+        <Button className="Public" onClick={addevent} variant="primary" type="submit">
           Publier
         </Button>
       </Form>

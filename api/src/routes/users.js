@@ -61,13 +61,13 @@ routes.post("/signIn", (req, res) => {
               res.send({ token: token });
               console.log("Your connected");
             } else {
-              res.status(401).send('mouvais mot de pass')
+              res.status(401).send('Le mot de passe entré est incorrect')
               console.log("who are you");
             }
           }
         );
       } else {
-        res.status(403).send('non identifie')
+        res.status(403).send('L’e-mail entré ne correspond à aucun compte')
       }
     }
   

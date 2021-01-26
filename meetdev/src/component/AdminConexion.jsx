@@ -12,7 +12,9 @@ import auth from './Auth'
 const AdminConexion = () =>  {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");    
-  const [password, setPassword] = useState("");    
+  const [password, setPassword] = useState("");
+
+  
 
   let history = useHistory();
 
@@ -47,7 +49,7 @@ const AdminConexion = () =>  {
   }
 
     return (
-      <div className="formulario-admin">
+      <div className="formulario-admin">   
         <Form onSubmit={handleData}>
             <h2>Conexion Admin</h2>
   <Form.Group>
@@ -77,8 +79,8 @@ const AdminConexion = () =>  {
     Conexion
   </Button>
   {/* <Button style={{marginLeft: 15}} variant="danger" type="submit">
-  Déconnexion
-  </Button> */}
+Déconnexion
+  </Button> */}  
 </Form>
 </div>
     )
