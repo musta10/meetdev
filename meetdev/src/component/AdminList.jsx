@@ -19,6 +19,7 @@ const AdminList = () => {
    
         return(
             <>
+            <p>Hello</p>
             <h1>Admin</h1>
             <Button onClick={addEvent} variant="primary">
            Ajoute un evenement
