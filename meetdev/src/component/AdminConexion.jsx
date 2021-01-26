@@ -5,8 +5,9 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { useHistory } from "react-router-dom";
 import auth from './Auth'
-
-
+import {signIn} from '../store/actions/actionUser'
+import { useDispatch } from 'react-redux'
+import jwt from 'jsonwebtoken'
 
 
 const AdminConexion = () =>  {
@@ -17,6 +18,7 @@ const AdminConexion = () =>  {
   
 
   let history = useHistory();
+  const dispatch = useDispatch()
 
   const admin = () =>{
     console.log(name,email,password);
@@ -35,6 +37,12 @@ const AdminConexion = () =>  {
     ).then((reponse)=>{
       console.log(reponse);
       auth.loginAdmin(() =>{
+        var decoded = jwt.decode(reponse.data.token)
+        console.log(decoded);
+        dispatch(signIn({...decoded, token : reponse.data.token}))
+
+
+
         history.push("/EventList");
       })
       
@@ -86,4 +94,5 @@ Déconnexion
     )
 
 }
+
 export default AdminConexion;

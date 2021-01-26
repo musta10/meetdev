@@ -5,26 +5,33 @@ import React, { useState } from "react";
 import Axios from "axios";
 import { useHistory } from "react-router-dom";
 import auth from './Auth'
+import { useSelector } from 'react-redux'
 
 const AddEvent = () => {
   const [description, setDescription] = useState("");
+  const user = useSelector(state => state.userReducer.user)
   const [date, setDate] = useState("");
 
   let history = useHistory()
 
   const addevent = () => {
-
-    Axios.post("http://localhost:4000/addevent", {
+    console.log(user);
+    Axios.post("http://localhost:4000/addevent",
+    {
       description: description,
       date: date,
     },
     {
       headers: {
-        authorizations: localStorage.getItem('token')
+        'Content-type': 'application/json',
+        'authorization': user.token
       }
-  }).then((reponse) => {
+    }
+    ).then((reponse) => {
       console.log(reponse);
       auth.loginAdmin(() =>{
+        const token = user.token
+        console.log(token);
         history.push("/EventList");
       })
     });

@@ -6,7 +6,7 @@ import Button from 'react-bootstrap/Button';
 import { useHistory } from "react-router-dom";
 
 
-const UserProfile = () => {
+const YourProfile = () => {
 
   let history = useHistory();
   function Homepush() {
@@ -29,4 +29,4 @@ const UserProfile = () => {
 
 }
 
-export default UserProfile;
+export default YourProfile;
