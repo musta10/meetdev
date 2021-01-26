@@ -10,33 +10,16 @@ const Home = () => {
 
       <>
       <Nav />
-    <div className="container">
-      <p>Événements a Paris, Ille De France</p>
-      <article className="fleximg">
-      <section className="portada">
-        <img src={imgEvent} alt="evenement" />
-        {/* <div className="hover">
-          <h1 className="separ">Meet Dev</h1>
-          <p>
-            Vous Trouvez  tout la liste des Événements
-          </p>
-        </div> */}
-      </section>
-      <section className="portada">
-        <img src={imgEvent2} alt="evenement" />
-        {/* <div className="hover">
-          <h1 className="separ">Meet Dev</h1>
-          <p>
-            Vous Trouvez tout la liste des événements
-          </p>
-        </div> */}
-      </section>
-      </article>
-      <div className="actualite">
+      <p className="title">Événements a Paris, Ille De France</p>
+      <section class="grid-container">
+            <div className="photo"><img src={imgEvent} alt="event-ticket" /></div>
+            <div className="photo"><img src={imgEvent2} alt="event" /></div>
+        </section>
+        <div className="actualite">
         <p>Suivez toute l'actualité des événements</p>
         <Button className="boton-plus">En Savoir Plus</Button>
       </div>
-    </div>
+    
     <div className="information">
       <ul>
         <li>Poser des questions</li>
@@ -44,8 +27,6 @@ const Home = () => {
         <li>Trouver des places(billets..)</li>
         <li>Rencontres</li>
       </ul>
-        
-
     </div>
     </>
     

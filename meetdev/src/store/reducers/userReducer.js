@@ -1,21 +1,18 @@
 
-const initialState = {
-    token: "",
-    name: "",
-    email: "",
-    id: "",
-    // user_commentaires: []
-}
+// const initialState = {
+//     token: "",
+//     name: "",
+//     email: "",
+//     id: "",
+//     // user_commentaires: []
+// }
 
-const userReducer = (state = initialState, action) => {
+const userReducer = (state = {}, action) => {
     switch (action.type) {
         case "SIGN-IN":
             return {
                 ...state,
-                token: action.token,
-                name: action.name,
-                email: action.email,
-                id: action.id
+                user: action.user
             };
         case "SIGN-OUT": 
             return {

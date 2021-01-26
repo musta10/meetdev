@@ -3,6 +3,8 @@ import '../assets/styles/adminList.scss'
 import Button from 'react-bootstrap/Button';
 import { useHistory } from "react-router-dom";
 import auth from './Auth'
+import { AiFillDelete } from "react-icons/ai";
+import { AiFillEdit } from "react-icons/ai";
 
 
 
@@ -19,11 +21,29 @@ const AdminList = () => {
    
         return(
             <>
+<<<<<<< HEAD
             <p>Hello</p>
             <h1>Admin</h1>
             <Button onClick={addEvent} variant="primary">
            Ajoute un evenement
+=======
+            <h4 style={{textAlign: 'center', marginTop: 20}}>Evenements</h4>
+            <article className="card_event">
+              <div className="date-information">
+              <strong>05/12/2020</strong>
+              <p>concert jul a paris</p>
+              </div>
+              <div className="edit-icons">
+              <AiFillEdit className="separ" color="#0984e3" size={40} /> 
+              <AiFillDelete color="#808080" size={40} /> 
+              </div>
+            </article>
+            <div className="button">
+            <Button className="add_button" onClick={addEvent} variant="primary">
+           Ajouter un évènement
+>>>>>>> 8d18bc2be1de492ce332f1e3cc493ea67a5cdd12
           </Button>
+          </div>
           </>
         )
 }

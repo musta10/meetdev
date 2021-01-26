@@ -5,16 +5,20 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { useHistory } from "react-router-dom";
 import auth from './Auth'
-
-
+import {signIn} from '../store/actions/actionUser'
+import { useDispatch } from 'react-redux'
+import jwt from 'jsonwebtoken'
 
 
 const AdminConexion = () =>  {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");    
-  const [password, setPassword] = useState("");    
+  const [password, setPassword] = useState("");
+
+  
 
   let history = useHistory();
+  const dispatch = useDispatch()
 
   const admin = () =>{
     console.log(name,email,password);
@@ -33,6 +37,12 @@ const AdminConexion = () =>  {
     ).then((reponse)=>{
       console.log(reponse);
       auth.loginAdmin(() =>{
+        var decoded = jwt.decode(reponse.data.token)
+        console.log(decoded);
+        dispatch(signIn({...decoded, token : reponse.data.token}))
+
+
+
         history.push("/EventList");
       })
       
@@ -47,7 +57,7 @@ const AdminConexion = () =>  {
   }
 
     return (
-      <div className="formulario-admin">
+      <div className="formulario-admin">   
         <Form onSubmit={handleData}>
             <h2>Conexion Admin</h2>
   <Form.Group>
@@ -77,11 +87,12 @@ const AdminConexion = () =>  {
     Conexion
   </Button>
   {/* <Button style={{marginLeft: 15}} variant="danger" type="submit">
-  Déconnexion
-  </Button> */}
+Déconnexion
+  </Button> */}  
 </Form>
 </div>
     )
 
 }
+
 export default AdminConexion;

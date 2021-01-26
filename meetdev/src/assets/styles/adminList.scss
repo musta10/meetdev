@@ -5,4 +5,31 @@ body{
     padding: 0;
     box-sizing: border-box;
 }
-
+.card_event {
+    width: 800px;
+    background: #fff;
+    margin: 1em auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(118,118,120,0.2);
+}
+.date-information{
+    margin-left: 10px;
+}
+.edit-icons{
+    padding: 10px;
+    cursor: pointer;
+}
+.separ{
+    margin: 10px;
+}
+.add_button{
+    border-radius: 20px;
+}
+.button{
+    width: 800px;
+    margin: 1.5em auto;
+}

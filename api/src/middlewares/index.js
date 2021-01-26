@@ -2,8 +2,8 @@ const jwt = require('jsonwebtoken');
 const config = require("../configDb");
 
 module.exports = (req,res, next) =>{
-    const authHeader = req.headers.authorizations;
-    console.log(req.headers.authorizations);
+    const authHeader = req.headers.authorization;
+    console.log(req.headers.authorization);
     console.log(req.headers);
     const token = authHeader;
     console.log(token);
@@ -22,7 +22,6 @@ module.exports = (req,res, next) =>{
         }
       });
     } else {
-    //   console.log(test);
       res.status(403).send("no autorizado");
     }
 }
