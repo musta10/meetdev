@@ -8,6 +8,7 @@ import { AiFillEdit } from "react-icons/ai";
 
 
 
+
 const AdminList = () => {
     let history = useHistory()
 
@@ -22,18 +23,20 @@ const AdminList = () => {
             <>
             <h4 style={{textAlign: 'center', marginTop: 20}}>Evenements</h4>
             <article className="card_event">
-              <div>
-              <p>05/12/2020</p>
+              <div className="date-information">
+              <strong>05/12/2020</strong>
               <p>concert jul a paris</p>
               </div>
-              <div>
-              <AiFillEdit color="grey" size={40} /> 
-              <AiFillDelete color="red" size={40} /> 
+              <div className="edit-icons">
+              <AiFillEdit className="separ" color="#0984e3" size={40} /> 
+              <AiFillDelete color="#808080" size={40} /> 
               </div>
             </article>
+            <div className="button">
             <Button className="add_button" onClick={addEvent} variant="primary">
            Ajouter un évènement
           </Button>
+          </div>
           </>
         )
 }
