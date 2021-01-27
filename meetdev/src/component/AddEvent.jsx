@@ -7,6 +7,9 @@ import { useHistory } from "react-router-dom";
 import auth from './Auth'
 import { useSelector } from 'react-redux'
 
+
+
+
 const AddEvent = () => {
   const [description, setDescription] = useState("");
   const user = useSelector(state => state.userReducer.user)
