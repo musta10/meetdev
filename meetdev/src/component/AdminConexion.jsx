@@ -41,8 +41,7 @@ const AdminConexion = () =>  {
         console.log(decoded);
         dispatch(signIn({...decoded, token : reponse.data.token}))
 
-
-
+        
         history.push("/EventList");
       })
       
