@@ -51,6 +51,7 @@ const AdminList = () => {
                 </article>
               )  
             })}
+            )
            
           </div>
             </>
