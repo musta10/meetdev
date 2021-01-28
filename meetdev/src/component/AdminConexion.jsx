@@ -45,7 +45,6 @@ const AdminConexion = () =>  {
 
         Axios.get('http://localhost:4000/listevents')
         .then((response) => {
-          console.log(response.data);
           dispatch(listEvents(response.data))
         })
           
