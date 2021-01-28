@@ -62,3 +62,33 @@ img{
     }
 }
 
+
+
+@media screen and (max-width: 769px) {
+    .photo{
+        height: 150px;
+        padding: 8px;
+    }
+
+    .actualite{
+        width: 75%;
+        height: fit-content;
+        padding: .4rem;
+        margin: auto;
+        background-color: inherit;
+        display: block;
+        text-align: center;
+        border-radius: 10px;
+        .boton-plus{
+            margin-left: 10px;
+            vertical-align: middle;
+            align-self: center;
+            font-size: 15px;
+            
+        }
+       
+    }
+
+
+}
+

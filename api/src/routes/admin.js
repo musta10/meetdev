@@ -10,7 +10,6 @@ const checkToken = require('../middlewares')
 
 // CONEXION ADMIN
 routes.post("/admin", (req, res) => {
-  console.log(req.body);
     const password = req.body.password;
     const email = req.body.email;
     Mydb.query(
@@ -18,7 +17,7 @@ routes.post("/admin", (req, res) => {
       function (err, result) {
         console.log(result);
         if (err) {
-          res.send("non");
+          throw err
         } else {
           if (result.length > 0) {
             bcrypt.compare(
@@ -36,13 +35,13 @@ routes.post("/admin", (req, res) => {
                   res.send({ token: token });
                   console.log("is admin");
                 } else {
+                  res.status(401).send('Le mot de passe entré est incorrect')
                   console.log("is not admin");
-                  console.log(results);
                 }
               }
             );
           } else {
-            res.status(403).send('You are not admin')
+            res.status(403).send('Le Email entré est incorrect')
           }
         }
       }

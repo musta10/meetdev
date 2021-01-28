@@ -20,7 +20,8 @@ const AdminConexion = () =>  {
   let history = useHistory();
   const dispatch = useDispatch()
 
-  const admin = () =>{
+  const admin = (e) =>{
+    e.preventDefault()
     console.log(name,email,password);
     Axios.post('http://localhost:4000/admin', {
       email: email,
@@ -40,8 +41,7 @@ const AdminConexion = () =>  {
         var decoded = jwt.decode(reponse.data.token)
         console.log(decoded);
         dispatch(signIn({...decoded, token : reponse.data.token}))
-
-
+          
 
         history.push("/EventList");
       })
@@ -52,13 +52,10 @@ const AdminConexion = () =>  {
   })
   }
 
-  const handleData = (e) =>{
-    e.preventDefault()
-  }
 
     return (
       <div className="formulario-admin">   
-        <Form onSubmit={handleData}>
+        <Form onSubmit={admin}>
             <h2>Conexion Admin</h2>
   <Form.Group>
     <Form.Label>Email</Form.Label>
@@ -83,7 +80,7 @@ const AdminConexion = () =>  {
         setPassword(e.target.value);
       }} name="password" type="password" placeholder="mot de passe" />
   </Form.Group>
-  <Button onClick={admin} variant="primary" type="submit">
+  <Button  variant="primary" type="submit">
     Conexion
   </Button>
   {/* <Button style={{marginLeft: 15}} variant="danger" type="submit">

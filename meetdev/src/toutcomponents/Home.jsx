@@ -11,7 +11,7 @@ const Home = () => {
       <>
       <Nav />
       <p className="title">Événements a Paris, Ille De France</p>
-      <section class="grid-container">
+      <section className="grid-container">
             <div className="photo"><img src={imgEvent} alt="event-ticket" /></div>
             <div className="photo"><img src={imgEvent2} alt="event" /></div>
         </section>

@@ -7,6 +7,8 @@ import { useHistory } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import auth from '../component/Auth'
+import {signIn} from '../store/actions/actionUser'
+import { useDispatch } from 'react-redux'
 
 
 
@@ -15,6 +17,8 @@ const Conexion = (props) => {
   const [password, setPassword] = useState("");
   const [msg, setMsg] = useState("");
 
+  const dispatch = useDispatch()
+
   const handleSubmit = (e) =>{
       e.preventDefault()
       Axios.post('http://localhost:4000/signIn', {
@@ -22,14 +26,13 @@ const Conexion = (props) => {
         password: password,
       }).then((reponse)=>{
         let decoded = jwt.decode(reponse.data.token)
-        console.log(decoded)
-        if (decoded) {
           localStorage.setItem('id', decoded.id)
           localStorage.setItem('name', decoded.name)
           localStorage.setItem('token', reponse.data.token) 
           localStorage.setItem('email', decoded.email)
-        } 
+        
         auth.login(() =>{
+        dispatch(signIn({...decoded, token : reponse.data.token}))
           props.history.push('/home')
         })
         
