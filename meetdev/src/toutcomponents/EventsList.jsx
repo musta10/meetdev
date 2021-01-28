@@ -4,6 +4,10 @@ import '../assets/styles/events.scss'
 
 
 const Events = () => {
+
+//// ICI LA LISTE EVENTS .MAP
+
+
 return(
     <>
     <Nav />

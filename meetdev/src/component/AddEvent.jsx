@@ -5,7 +5,8 @@ import React, { useState } from "react";
 import Axios from "axios";
 import { useHistory } from "react-router-dom";
 import auth from './Auth'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch  } from 'react-redux'
+import {addEvent} from '../store/actions/actionsEvent'
 
 
 
@@ -16,6 +17,8 @@ const AddEvent = () => {
   const [date, setDate] = useState("");
 
   let history = useHistory()
+  const dispatch = useDispatch()
+
 
   const addevent = () => {
     console.log(user);
@@ -31,10 +34,16 @@ const AddEvent = () => {
       }
     }
     ).then((reponse) => {
-      console.log(reponse);
+      console.log(reponse); // trouve la id de la respone je la met dans variable 
       auth.loginAdmin(() =>{
         const token = user.token
         console.log(token);
+
+        dispatch(addEvent({
+          description: description,
+          date: date,
+          // id nom de la varibale de la id 
+        },))
         history.push("/EventList");
       })
     });

@@ -4,6 +4,7 @@ export const listEvents = (events) => dispatch => {
 }
 
 export const addEvent = (event) => dispatch => {
+    console.log(event);
     dispatch({type: "ADD-EVENT" , event })
 }
 

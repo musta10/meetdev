@@ -48,28 +48,6 @@ routes.post("/admin", (req, res) => {
     );
   });
   
-  // // ADMIN TOKEN
-  // routes.use("/addEvent", (req, res, next) => {
-  //   const authHeader = req.headers.authorizations;
-  //   console.log(req.headers);
-  //   const token = authHeader;
-  
-  //   if (token) {
-  //     console.log(token);
-  //     jwt.verify(token, config.secret, (err, decodedToken) => {
-  //       if (err) {
-  //         console.log(err);
-  //         res.status(403).send("no autorizado");
-  //       } else {
-  //         console.log("test");
-  //         next();
-  //       }
-  //     });
-  //   } else {
-  //     console.log("bonjour");
-  //     res.status(403).send("oui");
-  //   }
-  // });
   
   // AJOUTE EVENEMENT ADMIN
   routes.post("/addevent", checkToken, (req, res) => {
@@ -83,7 +61,9 @@ routes.post("/admin", (req, res) => {
         if (err) {
           console.log(err);
         } else {
-          res.send("bien reçu")
+          // avec console.log res
+          // metre variable envoye la var
+          res.send("bien reçu")  // trouve id et  entre parentesis send id 
         }
       }
     );
