@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import { useHistory } from "react-router-dom";
 import Moment from 'react-moment';
 import auth from './Auth'
+// import 'moment/locale/fr'
 import { AiFillDelete } from "react-icons/ai";
 import { AiFillEdit } from "react-icons/ai";
 import {useSelector} from 'react-redux'
@@ -23,7 +24,7 @@ const AdminList = () => {
       auth.loginAdmin(() =>{
 
   // RECUPERE EVENTS DEL STORE 
-
+        
         history.push("/addEvent");
       })
     }
@@ -43,7 +44,7 @@ const AdminList = () => {
                 <article key={index} className="card_event">
                   <div className="date-information">
                   <Moment style={{color: "#d63031"}} format="YYYY/MM/DD">
-                  {elem.date}
+                  {elem.date} 
             </Moment>
                   
                   <p>{elem.description}</p>
@@ -55,12 +56,11 @@ const AdminList = () => {
                 </article>
               )  
             })}
-            )
+            
            
           </div>
             </>
           
-        )
-}
+        )}
 
 export default AdminList;
