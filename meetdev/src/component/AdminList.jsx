@@ -2,6 +2,7 @@ import React from 'react'
 import '../assets/styles/adminList.scss'
 import Button from 'react-bootstrap/Button';
 import { useHistory } from "react-router-dom";
+import Moment from 'react-moment';
 import auth from './Auth'
 import { AiFillDelete } from "react-icons/ai";
 import { AiFillEdit } from "react-icons/ai";
@@ -41,7 +42,10 @@ const AdminList = () => {
               return (
                 <article key={index} className="card_event">
                   <div className="date-information">
-                  <strong>{elem.date}</strong>
+                  <Moment style={{color: "#d63031"}} format="YYYY/MM/DD">
+                  {elem.date}
+            </Moment>
+                  
                   <p>{elem.description}</p>
                   </div>
                   <div className="edit-icons">
