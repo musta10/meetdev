@@ -17,6 +17,11 @@ const eventsReducer = (state = initialState, action) => {
                 ...state,
                 events: [...state.events, action.event]
             }
+            case "EDIT-EVENT": 
+            return {
+                ...state,
+                events: [...state.events, action.event]
+            }
                 case "USER-COMMENTAIRES":
             return {
                 ...state,

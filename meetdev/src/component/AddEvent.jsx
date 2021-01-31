@@ -56,7 +56,7 @@ const AddEvent = () => {
   return (
     <div className="formulario">
       <Form onSubmit={handleSubmit}>
-        <h2>Ajouter des événements</h2>
+        <h2>Ajouter Des événements</h2>
         <Form.Group>
           <Form.Label>Description</Form.Label>
           <Form.Control
