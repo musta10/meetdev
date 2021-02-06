@@ -7,7 +7,7 @@ import auth from './Auth'
 // import 'moment/locale/fr'
 import { AiFillDelete } from "react-icons/ai";
 import { AiFillEdit } from "react-icons/ai";
-import {useSelector} from 'react-redux'
+import {useSelector} from 'react-redux';
 
 
 
@@ -43,13 +43,13 @@ const AdminList = () => {
                 <article key={index} className="card_event">
                   <div className="date-information">
                   <Moment style={{color: "#d63031"}} format="YYYY/MM/DD">
-                  {elem.date} 
+                  {elem.date}
             </Moment>
                   
                   <p>{elem.description}</p>
                   </div>
                   <div className="edit-icons">
-                  <AiFillEdit className="separ" color="#0984e3" size={40} /> 
+                  <AiFillEdit onClick={} className="separ" color="#0984e3" size={40} /> 
                   <AiFillDelete color="#808080" size={40} /> 
                   </div>
                 </article>
