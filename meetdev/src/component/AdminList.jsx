@@ -49,7 +49,7 @@ const AdminList = () => {
                   <p>{elem.description}</p>
                   </div>
                   <div className="edit-icons">
-                  <AiFillEdit onClick={} className="separ" color="#0984e3" size={40} /> 
+                  <AiFillEdit className="separ" color="#0984e3" size={40} /> 
                   <AiFillDelete color="#808080" size={40} /> 
                   </div>
                 </article>
