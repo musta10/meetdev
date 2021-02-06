@@ -13,7 +13,7 @@ routes.post("/admin", (req, res) => {
     const password = req.body.password;
     const email = req.body.email;
     Mydb.query(
-      `SELECT * FROM admin WHERE email = '${req.body.email}'`,
+      `SELECT * FROM admin WHERE email = '${email}'`,
       function (err, result) {
         console.log(result);
         if (err) {
