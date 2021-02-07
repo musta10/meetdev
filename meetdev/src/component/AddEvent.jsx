@@ -33,7 +33,8 @@ const AddEvent = () => {
       }
     }
     ).then((reponse) => {
-      console.log(reponse); // trouve la id de la respone je la met dans variable 
+      console.log(reponse);
+      // trouve la id de la respone je la met dans variable 
       auth.loginAdmin(() =>{
         const token = user.token
         console.log(token);
