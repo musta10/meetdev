@@ -6,6 +6,7 @@ import Button from 'react-bootstrap/Button';
 import { useHistory } from "react-router-dom";
 import auth from './Auth'
 import {signIn} from '../store/actions/actionUser'
+import {listEvents} from '../store/actions/actionsEvent'
 import { useDispatch } from 'react-redux'
 import jwt from 'jsonwebtoken'
 
@@ -41,6 +42,11 @@ const AdminConexion = () =>  {
         var decoded = jwt.decode(reponse.data.token)
         console.log(decoded);
         dispatch(signIn({...decoded, token : reponse.data.token}))
+
+        Axios.get('http://localhost:4000/listevents')
+        .then((response) => {
+          dispatch(listEvents(response.data))
+        })
           
 
         history.push("/EventList");

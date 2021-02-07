@@ -10,13 +10,18 @@ const eventsReducer = (state = initialState, action) => {
         case "LIST-EVENTS": 
             return {
                 ...state,
-                events: [...state.events, action.event]
+                events: action.events
             };
         case "ADD-EVENT": 
             return {
                 ...state,
                 events: [...state.events, action.event]
-            };
+            }
+            case "EDIT-EVENT": 
+            return {
+                ...state,
+                events: [...state.events, action.event]
+            }
                 case "USER-COMMENTAIRES":
             return {
                 ...state,

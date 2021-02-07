@@ -5,7 +5,15 @@ import imgEvent from "../assets/img/event1.jpg";
 import imgEvent2 from '../assets/img/event2.jfif'
 import Nav from "../component/Nav";
 
-const Home = () => {
+
+
+
+const Home = (props) => {
+ 
+  function listEvents() {
+    props.history.push('/events')
+    
+  }
   return (
 
       <>
@@ -17,7 +25,7 @@ const Home = () => {
         </section>
         <div className="actualite">
         <p>Suivez toute l'actualité des événements</p>
-        <Button className="boton-plus">En Savoir Plus</Button>
+        <Button onClick={listEvents} className="boton-plus">En Savoir Plus</Button>
       </div>
     
     <div className="information">

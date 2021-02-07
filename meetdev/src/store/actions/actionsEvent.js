@@ -4,8 +4,18 @@ export const listEvents = (events) => dispatch => {
 }
 
 export const addEvent = (event) => dispatch => {
+    console.log(event);
     dispatch({type: "ADD-EVENT" , event })
 }
+export const editEvent = (event) => dispatch => {
+    console.log(event);
+    dispatch({type: "EDIT-EVENT" , event })
+}
+export const deleteEvent = (event) => dispatch => {
+    console.log(event);
+    dispatch({type: "DELETE-EVENT" , event })
+}
+
 
 
 // export const addEvent = (event) => ({

@@ -9,6 +9,7 @@ import Button from "react-bootstrap/Button";
 import auth from '../component/Auth'
 import {signIn} from '../store/actions/actionUser'
 import { useDispatch } from 'react-redux'
+import {listEvents} from '../store/actions/actionsEvent'
 
 
 
@@ -33,6 +34,13 @@ const Conexion = (props) => {
         
         auth.login(() =>{
         dispatch(signIn({...decoded, token : reponse.data.token}))
+
+        Axios.get('http://localhost:4000/listevents')
+        .then((response) => {
+          console.log(response.data);
+          dispatch(listEvents(response.data))
+        })
+        
           props.history.push('/home')
         })
         

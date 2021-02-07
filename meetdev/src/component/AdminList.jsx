@@ -1,44 +1,95 @@
-import React from 'react'
-import '../assets/styles/adminList.scss'
-import Button from 'react-bootstrap/Button';
+import React, { useState } from "react";
+import "../assets/styles/adminList.scss";
+import Button from "react-bootstrap/Button";
 import { useHistory } from "react-router-dom";
-import auth from './Auth'
+import Moment from "react-moment";
+import Modal from "react-bootstrap/Modal";
+import auth from "./Auth";
+import Form from "react-bootstrap/Form";
+// import 'moment/locale/fr'
 import { AiFillDelete } from "react-icons/ai";
 import { AiFillEdit } from "react-icons/ai";
-
-
-
+import { useSelector } from "react-redux";
 
 const AdminList = () => {
-    let history = useHistory()
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
-    function addEvent () {
-      auth.loginAdmin(() =>{
-        history.push("/addEvent");
-      })
-    }
+  const events = useSelector((state) => state.eventsReducer.events);
+  console.log(events);
 
-   
-        return(
-            <>
-            <h4 style={{textAlign: 'center', marginTop: 20}}>Evenements</h4>
-            <article className="card_event">
+  let history = useHistory();
+  function addEvent() {
+    auth.loginAdmin(() => {
+      // RECUPERE EVENTS DEL STORE
+
+      history.push("/addEvent");
+    });
+  }
+
+  return (
+    <>
+      <div>
+        <h4 style={{ textAlign: "center", marginTop: 20 }}>Evenements</h4>
+        <div className="button">
+          <Button className="add_button" onClick={addEvent} variant="primary">
+            Ajouter un évènement
+          </Button>
+        </div>
+        {events.map((elem, index) => {
+          return (
+            <article key={index} className="card_event">
               <div className="date-information">
-              <strong>05/12/2020</strong>
-              <p>concert jul a paris</p>
+                <Moment style={{ color: "#d63031" }} format="YYYY/MM/DD">
+                  {elem.date}
+                </Moment>
+
+                <p>{elem.description}</p>
               </div>
               <div className="edit-icons">
-              <AiFillEdit className="separ" color="#0984e3" size={40} /> 
-              <AiFillDelete color="#808080" size={40} /> 
+                <AiFillEdit
+                  onClick={handleShow}
+                  className="separ"
+                  color="#0984e3"
+                  size={40}
+                />
+                <AiFillDelete color="#808080" size={40} />
               </div>
             </article>
-            <div className="button">
-            <Button className="add_button" onClick={addEvent} variant="primary">
-           Ajouter un évènement
-          </Button>
-          </div>
-          </>
-        )
-}
-
+          );
+        })}
+        <Modal show={show} onHide={handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>Modifier un évènement</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <Form>
+              <Form.Group>
+                <Form.Label>Description</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="description"
+                  placeholder="Description de l'événement"
+                />
+              </Form.Group>
+              <Form.Group>
+                <Form.Label>Date de l'événement</Form.Label>
+                <Form.Control name="date" type="date" placeholder="date" />
+              </Form.Group>
+            </Form>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+              Close
+            </Button>
+            <Button variant="primary" onClick={handleClose}>
+              Modifier
+            </Button>
+          </Modal.Footer>
+        </Modal>
+      </div>
+    </>
+  );
+};
 export default AdminList;
