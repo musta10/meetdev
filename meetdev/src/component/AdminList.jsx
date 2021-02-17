@@ -83,7 +83,7 @@ const AdminList = () => {
             <Button variant="secondary" onClick={handleClose}>
               Close
             </Button>
-            <Button variant="primary" onClick={handleClose}>
+            <Button variant="primary" onClick={handleClose} >
               Modifier
             </Button>
           </Modal.Footer>
