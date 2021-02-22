@@ -23,7 +23,7 @@ return(
           return (
             <article key={index} className="card_evenement">
               <div className="date">
-                <Moment style={{ color: "#d63031" }} format="YYYY/MM/DD">
+                <Moment style={{ color: "#d63031" }} format="DD/MM/YYYY">
                   {elem.date}
                 </Moment>
 
@@ -32,10 +32,10 @@ return(
               <div className="edit-icons">
                 <AiFillEdit
                   className="separ"
-                  color="#0984e3"
+                  color="#000000"
                   size={40}
                 />
-                <AiFillDelete color="#808080" size={40} />
+                <AiFillDelete color="#000000" size={40} />
               </div>
             </article>
           );

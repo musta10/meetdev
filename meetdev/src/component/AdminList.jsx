@@ -41,7 +41,7 @@ const AdminList = () => {
           return (
             <article key={index} className="card_event">
               <div className="date-information">
-                <Moment style={{ color: "#d63031" }} format="YYYY/MM/DD">
+                <Moment style={{ color: "#d63031" }} format="DD/MM/YYYY">
                   {elem.date}
                 </Moment>
 
