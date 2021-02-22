@@ -2,8 +2,8 @@ import React from 'react'
 import Nav from '../component/Nav'
 import '../assets/styles/events.scss'
 import {useSelector} from 'react-redux'
-import { FaRegCommentAlt } from "react-icons/fa";
-import { FaRegCalendarMinus } from "react-icons/fa";
+import { MdModeComment } from "react-icons/md";
+import { MdEvent } from "react-icons/md";
 import Moment from "react-moment";
 
 const Events = () => {
@@ -30,11 +30,11 @@ return(
                 <p>{elem.description}</p>
               </div>
               <div className="edit-icons">
-             <FaRegCalendarMinus
+             <MdEvent
               className="separ"
               color="#000000"
               size={30} />
-                <FaRegCommentAlt
+                <MdModeComment
                   className="separ"
                   color="#000000"
                   size={30}
