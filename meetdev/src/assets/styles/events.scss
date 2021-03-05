@@ -6,9 +6,11 @@ body{
     padding: 0;
     box-sizing: border-box;
 }
+
 .card_evenement{
     width: 800px;
     background: #FFEAA7;
+    height: 150px;
     margin: 1em auto;
     display: flex;
     justify-content: space-between;
@@ -19,6 +21,9 @@ body{
 }
 .date{
     margin-left: 10px;
+    p{
+        font-weight: bold;
+    }
 }
 .edit-icons{
     display: flex;
