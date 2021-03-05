@@ -3,7 +3,6 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom'
 import Conexion from "./toutcomponents/Conexion"
 import Inscription from "./toutcomponents/Inscription";
 import AdminConexion from './component/AdminConexion'
-// import Nav from './component/Nav'
 import AddEvent from './component/AddEvent'
 import Events from './toutcomponents/EventsList'
 import Profile from './component/EditProfile'
@@ -27,10 +26,6 @@ function App() {
       <ProtectedRoute exact path='/events' component={Events} />
       <ProtectedRoute exact path='/profile' component={Profile} />
     </Switch>
-    {/* <AdminConexion /> */}
-    {/* <Profile /> */}
-    {/* <AddEvent /> */}
-    {/* <Inscription /> */}
     </BrowserRouter>
   );
 }
