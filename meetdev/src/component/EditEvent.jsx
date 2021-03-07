@@ -21,7 +21,7 @@ const EditEvent = () => {
 
 
   const editevent = () => {
-    Axios.post("http://localhost:4000/addevent",
+    Axios.put(`http://localhost:4000/events/:id`,
     {
       description: description,
       date: date,
