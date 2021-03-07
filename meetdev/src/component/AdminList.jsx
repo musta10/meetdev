@@ -33,6 +33,10 @@ const AdminList = () => {
     Axios.put("http://localhost:4000/events/:id")
 
   }
+  // const deleteevent = (id) => {
+  //   Axios.delete(`http://localhost:4000/events/${id}`)
+
+  // }
 
   return (
     <>
@@ -89,7 +93,7 @@ const AdminList = () => {
             <Button variant="secondary" onClick={handleClose}>
               Close
             </Button>
-            <Button variant="primary" onClick={handleClose} >
+            <Button variant="primary" onClick={editevent} >
               Modifier
             </Button>
           </Modal.Footer>
