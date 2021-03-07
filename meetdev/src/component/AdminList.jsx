@@ -6,6 +6,7 @@ import Moment from "react-moment";
 import Modal from "react-bootstrap/Modal";
 import auth from "./Auth";
 import Form from "react-bootstrap/Form";
+import Axios from "axios";
 // import 'moment/locale/fr'
 import { AiFillDelete } from "react-icons/ai";
 import { AiFillEdit } from "react-icons/ai";
@@ -26,6 +27,11 @@ const AdminList = () => {
 
       history.push("/addEvent");
     });
+  }
+
+  const editevent = () => {
+    Axios.put("http://localhost:4000/events/:id")
+
   }
 
   return (

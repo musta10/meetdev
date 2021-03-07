@@ -34,6 +34,7 @@ const AddEvent = () => {
     }
     ).then((reponse) => {
       console.log(reponse);
+      console.log(reponse.id);
       // trouve la id de la respone je la met dans variable 
       auth.loginAdmin(() =>{
         const token = user.token
@@ -48,6 +49,8 @@ const AddEvent = () => {
       })
     });
   };
+
+ 
 
   const handleSubmit = (e) =>{
     e.preventDefault()
