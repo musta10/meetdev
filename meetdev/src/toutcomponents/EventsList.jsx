@@ -1,13 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Nav from '../component/Nav'
 import '../assets/styles/events.scss'
 import {useSelector} from 'react-redux'
 import { MdModeComment } from "react-icons/md";
 import { MdEvent } from "react-icons/md";
 import Moment from "react-moment";
+import Form from 'react-bootstrap/Form';
 
 const Events = () => {
-
+    const [show, setShow]=useState(true)
     const events = useSelector(state => state.eventsReducer.events )
     console.log(events)
 
@@ -37,12 +38,18 @@ return(
                   color="#000000"
                   size={30}
                 />
-                <p>commenter</p>
+                <p onClick={() =>setShow(!show)}>commenter</p>
               </div>
+              {
+        show?
+        <Form.Control type="text" placeholder="Votre commentaire" />
+        :null
+      }
             </article>
           );
         })}
     </div>
+      
     </>
 )
 }
