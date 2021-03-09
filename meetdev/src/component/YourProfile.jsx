@@ -15,7 +15,7 @@ const YourProfile = () => {
   
     return (
         <Card className="p-3" style={{ width: '18rem' }}>
-        <h3>Votre Profile</h3>
+        <h3>Votre Profil</h3>
         <Card.Header className="logos"> <img style={{width:80, height:80, borderRadius: '50%'}} src={imageUser} alt=""/></Card.Header>
         <ListGroup variant="flush">
           <ListGroup.Item>Prénom</ListGroup.Item>

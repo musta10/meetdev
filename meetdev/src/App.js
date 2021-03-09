@@ -22,7 +22,7 @@ function App() {
       <Route exact path='/inscription' component={Inscription} />
       <Route exact path='/admin' component={AdminConexion} />
       <ProtectedAdmin exact path='/addEvent' component={AddEvent} />
-      <ProtectedAdmin exact path='/editEvent' component={EditEvent} />
+      <ProtectedAdmin exact path='/editEvent/:id' component={EditEvent} />
       <ProtectedAdmin exact path='/EventList' component={AdminList} />
       <ProtectedRoute exact path='/events' component={Events} />
       <ProtectedRoute exact path='/profile' component={Profile} />

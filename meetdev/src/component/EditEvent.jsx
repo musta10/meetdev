@@ -3,7 +3,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import React, { useState } from "react";
 import Axios from "axios";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import auth from './Auth'
 import { useSelector, useDispatch  } from 'react-redux'
 import {editEvent} from '../store/actions/actionsEvent'
@@ -17,12 +17,13 @@ const EditEvent = () => {
   const [date, setDate] = useState("");
 
   let history = useHistory()
+  const params = useParams()
   const dispatch = useDispatch()
 
-
+  console.log(params.id);
   const editevent = () => {
     
-    Axios.put(`http://localhost:4000/events/:id`,
+    Axios.put(`http://localhost:4000/events/${params.id}`,
     {
       description: description,
       date: date,
