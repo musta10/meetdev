@@ -10,8 +10,6 @@ const Events = () => {
 
     const events = useSelector(state => state.eventsReducer.events )
     console.log(events)
-//// ICI LA LISTE EVENTS .MAP
-
 
 
 return(

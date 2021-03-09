@@ -1,20 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import "../assets/styles/adminList.scss";
 import Button from "react-bootstrap/Button";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import Moment from "react-moment";
-import Modal from "react-bootstrap/Modal";
 import auth from "./Auth";
-import Form from "react-bootstrap/Form";
-// import 'moment/locale/fr'
+import 'moment/locale/fr';
 import { AiFillDelete } from "react-icons/ai";
 import { AiFillEdit } from "react-icons/ai";
 import { useSelector } from "react-redux";
 
 const AdminList = () => {
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
 
   const events = useSelector((state) => state.eventsReducer.events);
   console.log(events);
@@ -27,6 +22,15 @@ const AdminList = () => {
       history.push("/addEvent");
     });
   }
+
+  // const editevent = () => {
+  //   Axios.put("http://localhost:4000/events/:id")
+
+  // }
+  // const deleteevent = (id) => {
+  //   Axios.delete(`http://localhost:4000/events/${id}`)
+
+  // }
 
   return (
     <>
@@ -48,46 +52,18 @@ const AdminList = () => {
                 <p>{elem.description}</p>
               </div>
               <div className="edit-icons">
+                <Link    to={`/editEvent/${elem.id}`} >
                 <AiFillEdit
-                  onClick={handleShow}
                   className="separ"
                   color="#0984e3"
                   size={40}
                 />
+                </Link    >
                 <AiFillDelete color="#808080" size={40} />
               </div>
             </article>
           );
         })}
-        <Modal show={show} onHide={handleClose}>
-          <Modal.Header closeButton>
-            <Modal.Title>Modifier un évènement</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <Form>
-              <Form.Group>
-                <Form.Label>Description</Form.Label>
-                <Form.Control
-                  type="text"
-                  name="description"
-                  placeholder="Description de l'événement"
-                />
-              </Form.Group>
-              <Form.Group>
-                <Form.Label>Date de l'événement</Form.Label>
-                <Form.Control name="date" type="date" placeholder="date" />
-              </Form.Group>
-            </Form>
-          </Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
-              Close
-            </Button>
-            <Button variant="primary" onClick={handleClose} >
-              Modifier
-            </Button>
-          </Modal.Footer>
-        </Modal>
       </div>
     </>
   );

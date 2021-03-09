@@ -62,7 +62,7 @@ const AdminConexion = () =>  {
     return (
       <div className="formulario-admin">   
         <Form onSubmit={admin}>
-            <h2>Conexion Admin</h2>
+            <h2>Connexion Admin</h2>
   <Form.Group>
     <Form.Label>Email</Form.Label>
     <Form.Control 
@@ -87,7 +87,7 @@ const AdminConexion = () =>  {
       }} name="password" type="password" placeholder="mot de passe" />
   </Form.Group>
   <Button  variant="primary" type="submit">
-    Conexion
+    Connexion
   </Button>
   {/* <Button style={{marginLeft: 15}} variant="danger" type="submit">
 Déconnexion

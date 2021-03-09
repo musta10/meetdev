@@ -3,25 +3,27 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import React, { useState } from "react";
 import Axios from "axios";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import auth from './Auth'
 import { useSelector, useDispatch  } from 'react-redux'
-import {addEvent} from '../store/actions/actionsEvent'
+import {editEvent} from '../store/actions/actionsEvent'
 
 
 
 
-const AddEvent = () => {
+const EditEvent = () => {
   const [description, setDescription] = useState("");
   const user = useSelector(state => state.userReducer.user)
   const [date, setDate] = useState("");
 
   let history = useHistory()
+  const params = useParams()
   const dispatch = useDispatch()
 
-
-  const addevent = () => {
-    Axios.post("http://localhost:4000/addevent",
+  console.log(params.id);
+  const editevent = () => {
+    
+    Axios.put(`http://localhost:4000/events/${params.id}`,
     {
       description: description,
       date: date,
@@ -39,7 +41,7 @@ const AddEvent = () => {
         const token = user.token
         console.log(token);
 
-        dispatch(addEvent({
+        dispatch(editEvent({
           description: description,
           date: date,
           // id nom de la varibale de la id 
@@ -59,7 +61,7 @@ const AddEvent = () => {
   return (
     <div className="formulario">
       <Form onSubmit={handleSubmit}>
-        <h2>Ajouter Des événements</h2>
+        <h2>Modifier événements</h2>
         <Form.Group>
           <Form.Label>Description</Form.Label>
           <Form.Control
@@ -80,11 +82,11 @@ const AddEvent = () => {
           <Form.Control name="date" type="date" placeholder="date" />
         </Form.Group>
 
-        <Button className="Public" onClick={addevent} variant="primary" type="submit">
-          Publier
+        <Button className="Public" onClick={editevent} variant="primary" type="submit">
+          Modifier
         </Button>
       </Form>
     </div>
   );
 };
-export default AddEvent;
+export default EditEvent;
