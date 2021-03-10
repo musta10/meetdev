@@ -6,7 +6,9 @@ body{
     padding: 0;
     box-sizing: border-box;
 }
-
+.commentaire{
+    display: block;
+}
 .card_evenement{
     width: 800px;
     background: #FFEAA7;
@@ -49,16 +51,6 @@ body{
         position: relative;
         border-radius: 5px;
         box-shadow: 0 4px 8px rgba(118,118,120,0.2);
-    }
-    .edit-icons{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 10px;
-        cursor: pointer;
-    }
-    .separ{
-        margin: 10px;
     }
     
 

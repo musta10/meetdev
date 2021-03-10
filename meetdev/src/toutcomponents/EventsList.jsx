@@ -42,7 +42,7 @@ return(
               </div>
               {
         show?
-        <Form.Control type="text" placeholder="Votre commentaire" />:null
+        <Form.Control className="commentaire" type="text" placeholder="Votre commentaire" />:null
       }
             </article>
           );
