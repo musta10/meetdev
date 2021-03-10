@@ -5,14 +5,17 @@ import { Link, useHistory } from "react-router-dom";
 import Moment from "react-moment";
 import auth from "./Auth";
 import 'moment/locale/fr';
+import Axios from "axios";
 import { AiFillDelete } from "react-icons/ai";
 import { AiFillEdit } from "react-icons/ai";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch} from "react-redux";
+import {editEvent} from '../store/actions/actionsEvent'
 
 const AdminList = () => {
 
   const events = useSelector((state) => state.eventsReducer.events);
   console.log(events);
+  const dispatch = useDispatch()
 
   let history = useHistory();
   function addEvent() {
@@ -31,6 +34,14 @@ const AdminList = () => {
   //   Axios.delete(`http://localhost:4000/events/${id}`)
 
   // }
+  const deleteEvent = (id) => {
+   Axios.delete(`http://localhost:4000/events/${id}`)
+   .then((res) => {
+   
+    dispatch(editEvent(events.filter(a => a.id !== id)))
+   })
+
+  }
 
   return (
     <>
@@ -58,8 +69,8 @@ const AdminList = () => {
                   color="#0984e3"
                   size={40}
                 />
-                </Link    >
-                <AiFillDelete color="#808080" size={40} />
+                </Link>
+                <AiFillDelete onClick={()=> deleteEvent(elem.id)} color="#808080" size={40} />
               </div>
             </article>
           );

@@ -5,16 +5,22 @@ import React, { useState } from "react";
 import Axios from "axios";
 import { useHistory, useParams } from "react-router-dom";
 import auth from './Auth'
-import { useSelector, useDispatch  } from 'react-redux'
-import {editEvent} from '../store/actions/actionsEvent'
+import { useSelector} from 'react-redux'
+import {listEvents} from '../store/actions/actionsEvent'
+import { useDispatch } from 'react-redux'
 
 
 
 
 const EditEvent = () => {
+
   const [description, setDescription] = useState("");
   const user = useSelector(state => state.userReducer.user)
   const [date, setDate] = useState("");
+  const events = useSelector(state => state.eventsReducer.events )
+  console.log(events)
+
+
 
   let history = useHistory()
   const params = useParams()
@@ -40,12 +46,15 @@ const EditEvent = () => {
       auth.loginAdmin(() =>{
         const token = user.token
         console.log(token);
+            Axios.get('http://localhost:4000/listevents')
+            .then((response) => {
+              dispatch(listEvents(response.data))
+            })
 
-        dispatch(editEvent({
-          description: description,
-          date: date,
-          // id nom de la varibale de la id 
-        },))
+        // dispatch(editEvent({
+        //   description: description,
+        //   date: date,
+        // },))
         history.push("/EventList");
       })
     });
