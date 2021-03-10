@@ -38,12 +38,11 @@ return(
                   color="#000000"
                   size={30}
                 />
-                <p onClick={() =>setShow(!show)}>commenter</p>
+                <p className="comentaire" onClick={() =>setShow(!show)}>commenter</p>
               </div>
               {
         show?
-        <Form.Control type="text" placeholder="Votre commentaire" />
-        :null
+        <Form.Control type="text" placeholder="Votre commentaire" />:null
       }
             </article>
           );
