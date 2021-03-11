@@ -26,14 +26,6 @@ const AdminList = () => {
     });
   }
 
-  // const editevent = () => {
-  //   Axios.put("http://localhost:4000/events/:id")
-
-  // }
-  // const deleteevent = (id) => {
-  //   Axios.delete(`http://localhost:4000/events/${id}`)
-
-  // }
   const deleteEvent = (id) => {
    Axios.delete(`http://localhost:4000/events/${id}`)
    .then((res) => {

@@ -6,11 +6,9 @@ import { MdModeComment } from "react-icons/md";
 import { MdEvent } from "react-icons/md";
 import Moment from "react-moment";
 import Form from 'react-bootstrap/Form';
-import { useDispatch } from 'react-redux'
 
 const Events = () => {
     const [show, setShow]=useState(false)
-    const dispatch = useDispatch()
     const events = useSelector(state => state.eventsReducer.events )
     console.log(events)
 
